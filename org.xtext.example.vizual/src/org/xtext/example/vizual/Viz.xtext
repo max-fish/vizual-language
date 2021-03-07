@@ -1,0 +1,9 @@
+grammar org.xtext.example.vizual.Viz with org.eclipse.xtext.common.Terminals
+
+generate viz "http://www.xtext.org/example/vizual/Viz"
+
+Model:
+	greetings+=Greeting*;
+	
+Greeting:
+	'Hello' name=ID '!';
