@@ -3,7 +3,33 @@ grammar org.xtext.example.vizual.Viz with org.eclipse.xtext.common.Terminals
 generate viz "http://www.xtext.org/example/vizual/Viz"
 
 Model:
-	greetings+=Greeting*;
-	
-Greeting:
-	'Hello' name=ID '!';
+	"html" mainTags+=MainTag*;
+
+MainTag:
+	mainTagName = MainTagName normalTags+=(NormalTag)*	
+;
+
+NormalTag:
+	(TextTag | ContainerTag)
+;
+
+TextTag:
+	("h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p") name=ID
+;
+
+ContainerTag:
+	{ContainerTag} "div" normalTags+=NormalTag* "end"
+;
+
+
+enum MainTagName:
+	head | body
+;
+
+terminal NEW_LINE:
+	"\n"
+;
+
+terminal TAB_SPACE:
+	'\t'
+;

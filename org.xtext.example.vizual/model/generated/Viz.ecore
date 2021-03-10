@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="viz" nsURI="http://www.xtext.org/example/vizual/Viz" nsPrefix="viz">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="mainTags" upperBound="-1"
+        eType="#//MainTag" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MainTag">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="mainTagName" eType="#//MainTagName"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="normalTags" upperBound="-1"
+        eType="#//NormalTag" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NormalTag"/>
+  <eClassifiers xsi:type="ecore:EClass" name="TextTag" eSuperTypes="#//NormalTag">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ContainerTag" eSuperTypes="#//NormalTag">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="normalTags" upperBound="-1"
+        eType="#//NormalTag" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MainTagName">
+    <eLiterals name="head" literal="head"/>
+    <eLiterals name="body" value="1" literal="body"/>
+  </eClassifiers>
+</ecore:EPackage>
