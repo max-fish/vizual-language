@@ -15,7 +15,6 @@ import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
-import org.xtext.example.vizual.tests.VizInjectorProvider;
 import org.xtext.example.vizual.viz.Model;
 
 @ExtendWith(InjectionExtension.class)

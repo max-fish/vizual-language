@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
+import org.xtext.example.vizual.viz.Model
 
 /**
  * Generates code from your model files on save.
@@ -16,10 +17,16 @@ import org.eclipse.xtext.generator.IGeneratorContext
 class VizGenerator extends AbstractGenerator {
 
 	override void doGenerate(Resource resource, IFileSystemAccess2 fsa, IGeneratorContext context) {
-//		fsa.generateFile('greetings.txt', 'People to greet: ' + 
-//			resource.allContents
-//				.filter(Greeting)
-//				.map[name]
-//				.join(', '))
+		val model = resource.contents.head as Model
+		fsa.generateFile(deriveTargetFileNameFor(model, resource), model.doGenerate)
 	}
+		// Code provided by Zchaler. S (2021) Lecture 4 Code Generation
+		def deriveTargetFileNameFor(Model model, Resource resource) {
+			resource.URI.lastSegment
+		}
+		
+		def String doGenerate(Model m){
+			// Code generation code here
+		}
+		
 }
