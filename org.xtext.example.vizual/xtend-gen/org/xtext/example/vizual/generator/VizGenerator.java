@@ -3,12 +3,21 @@
  */
 package org.xtext.example.vizual.generator;
 
+import com.google.common.base.Objects;
+import java.util.Arrays;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.ListExtensions;
+import org.eclipse.xtext.xbase.lib.StringExtensions;
+import org.xtext.example.vizual.viz.Command;
+import org.xtext.example.vizual.viz.Create;
+import org.xtext.example.vizual.viz.Generate;
 import org.xtext.example.vizual.viz.Model;
 
 /**
@@ -23,13 +32,88 @@ public class VizGenerator extends AbstractGenerator {
     EObject _head = IterableExtensions.<EObject>head(resource.getContents());
     final Model model = ((Model) _head);
     fsa.generateFile(this.deriveTargetFileNameFor(model, resource), this.doGenerate(model));
+    final String className = this.deriveClassName(resource);
+    fsa.generateFile((className + ".html"), this.doGenerate(model, className));
   }
   
+  /**
+   * This method appends .txt to the end of the resource file being output
+   *  Code provided by Zchaler. S (2021) Lecture 4 Code Generation
+   */
   public String deriveTargetFileNameFor(final Model model, final Resource resource) {
-    return resource.getURI().lastSegment();
+    return resource.getURI().appendFileExtension("txt").lastSegment();
   }
   
-  public String doGenerate(final Model m) {
-    return null;
+  /**
+   * This method derives the file name of containing file
+   * 	Code provided by Zchaler. S (2021) Lecture 4 Code Generation
+   */
+  public String deriveClassName(final Resource r) {
+    String _xblockexpression = null;
+    {
+      final String origFileName = r.getURI().lastSegment();
+      String _firstUpper = StringExtensions.toFirstUpper(origFileName.substring(0, origFileName.indexOf(".")));
+      _xblockexpression = (_firstUpper + "viz");
+    }
+    return _xblockexpression;
+  }
+  
+  public CharSequence doGenerate(final Model m, final String className) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<!DOCTYPE html>");
+    _builder.newLine();
+    final Function1<Command, CharSequence> _function = (Command it) -> {
+      return this.generateHTMLCommand(it);
+    };
+    String _join = IterableExtensions.join(ListExtensions.<Command, CharSequence>map(m.getCommands(), _function), "\n");
+    _builder.append(_join);
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  public CharSequence doGenerate(final Model m) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  protected CharSequence _generateHTMLCommand(final Command cmd) {
+    StringConcatenation _builder = new StringConcatenation();
+    return _builder;
+  }
+  
+  protected CharSequence _generateHTMLCommand(final Create crt) {
+    StringConcatenation _builder = new StringConcatenation();
+    boolean _equals = Objects.equal(crt, "BP");
+    if (_equals) {
+      final String[] a = crt.getBullets().split(",");
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("\t");
+    _builder.append("bullet point code here");
+    _builder.newLine();
+    _builder.append("\t");
+    _builder.newLine();
+    return _builder;
+  }
+  
+  protected CharSequence _generateHTMLCommand(final Generate gnrt) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<head> This is a default HTML webpage head </head>");
+    _builder.newLine();
+    _builder.append("<body> This is a default HTML webpage body </body>");
+    return _builder;
+  }
+  
+  public CharSequence generateHTMLCommand(final Command crt) {
+    if (crt instanceof Create) {
+      return _generateHTMLCommand((Create)crt);
+    } else if (crt instanceof Generate) {
+      return _generateHTMLCommand((Generate)crt);
+    } else if (crt != null) {
+      return _generateHTMLCommand(crt);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(crt).toString());
+    }
   }
 }

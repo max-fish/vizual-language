@@ -31,18 +31,12 @@ public class VizParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, VizGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getNormalTagAccess().getAlternatives(), "rule__NormalTag__Alternatives");
-			builder.put(grammarAccess.getTextTagAccess().getAlternatives_0(), "rule__TextTag__Alternatives_0");
-			builder.put(grammarAccess.getMainTagNameAccess().getAlternatives(), "rule__MainTagName__Alternatives");
-			builder.put(grammarAccess.getModelAccess().getGroup(), "rule__Model__Group__0");
-			builder.put(grammarAccess.getMainTagAccess().getGroup(), "rule__MainTag__Group__0");
-			builder.put(grammarAccess.getTextTagAccess().getGroup(), "rule__TextTag__Group__0");
-			builder.put(grammarAccess.getContainerTagAccess().getGroup(), "rule__ContainerTag__Group__0");
-			builder.put(grammarAccess.getModelAccess().getMainTagsAssignment_1(), "rule__Model__MainTagsAssignment_1");
-			builder.put(grammarAccess.getMainTagAccess().getMainTagNameAssignment_0(), "rule__MainTag__MainTagNameAssignment_0");
-			builder.put(grammarAccess.getMainTagAccess().getNormalTagsAssignment_1(), "rule__MainTag__NormalTagsAssignment_1");
-			builder.put(grammarAccess.getTextTagAccess().getNameAssignment_1(), "rule__TextTag__NameAssignment_1");
-			builder.put(grammarAccess.getContainerTagAccess().getNormalTagsAssignment_2(), "rule__ContainerTag__NormalTagsAssignment_2");
+			builder.put(grammarAccess.getCommandAccess().getAlternatives(), "rule__Command__Alternatives");
+			builder.put(grammarAccess.getCreateAccess().getGroup(), "rule__Create__Group__0");
+			builder.put(grammarAccess.getModelAccess().getCommandsAssignment(), "rule__Model__CommandsAssignment");
+			builder.put(grammarAccess.getCreateAccess().getCommandAssignment_0(), "rule__Create__CommandAssignment_0");
+			builder.put(grammarAccess.getCreateAccess().getBulletsAssignment_2(), "rule__Create__BulletsAssignment_2");
+			builder.put(grammarAccess.getGenerateAccess().getCommandAssignment(), "rule__Generate__CommandAssignment");
 		}
 	}
 	

@@ -3,29 +3,28 @@ grammar org.xtext.example.vizual.Viz with org.eclipse.xtext.common.Terminals
 generate viz "http://www.xtext.org/example/vizual/Viz"
 
 Model:
-	"html" mainTags+=MainTag*;
+	commands+=Command*;
 
-MainTag:
-	mainTagName = MainTagName normalTags+=(NormalTag)*	
+Command:
+	Create|Generate
 ;
 
-NormalTag:
-	(TextTag | ContainerTag)
+Create:
+	command = CreateBulletPoints 'with(' bullets=STRING ')'
 ;
 
-TextTag:
-	("h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p") name=ID
-;
-
-ContainerTag:
-	{ContainerTag} "div" normalTags+=NormalTag* "end"
+enum CreateBulletPoints:
+	BP = 'BP'
 ;
 
 
-enum MainTagName:
-	head | body
+Generate:
+	command = GenerateDefault
 ;
 
+enum GenerateDefault:
+	default='GenerateDefaultDocument'
+;
 terminal NEW_LINE:
 	"\n"
 ;

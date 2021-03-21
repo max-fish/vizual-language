@@ -16,7 +16,7 @@ import org.eclipse.emf.ecore.EObject;
  * The following features are supported:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.vizual.viz.Model#getMainTags <em>Main Tags</em>}</li>
+ *   <li>{@link org.xtext.example.vizual.viz.Model#getCommands <em>Commands</em>}</li>
  * </ul>
  *
  * @see org.xtext.example.vizual.viz.VizPackage#getModel()
@@ -26,15 +26,15 @@ import org.eclipse.emf.ecore.EObject;
 public interface Model extends EObject
 {
   /**
-   * Returns the value of the '<em><b>Main Tags</b></em>' containment reference list.
-   * The list contents are of type {@link org.xtext.example.vizual.viz.MainTag}.
+   * Returns the value of the '<em><b>Commands</b></em>' containment reference list.
+   * The list contents are of type {@link org.xtext.example.vizual.viz.Command}.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Main Tags</em>' containment reference list.
-   * @see org.xtext.example.vizual.viz.VizPackage#getModel_MainTags()
+   * @return the value of the '<em>Commands</em>' containment reference list.
+   * @see org.xtext.example.vizual.viz.VizPackage#getModel_Commands()
    * @model containment="true"
    * @generated
    */
-  EList<MainTag> getMainTags();
+  EList<Command> getCommands();
 
 } // Model

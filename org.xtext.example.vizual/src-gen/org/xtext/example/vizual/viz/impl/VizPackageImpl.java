@@ -11,12 +11,12 @@ import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
-import org.xtext.example.vizual.viz.ContainerTag;
-import org.xtext.example.vizual.viz.MainTag;
-import org.xtext.example.vizual.viz.MainTagName;
+import org.xtext.example.vizual.viz.Command;
+import org.xtext.example.vizual.viz.Create;
+import org.xtext.example.vizual.viz.CreateBulletPoints;
+import org.xtext.example.vizual.viz.Generate;
+import org.xtext.example.vizual.viz.GenerateDefault;
 import org.xtext.example.vizual.viz.Model;
-import org.xtext.example.vizual.viz.NormalTag;
-import org.xtext.example.vizual.viz.TextTag;
 import org.xtext.example.vizual.viz.VizFactory;
 import org.xtext.example.vizual.viz.VizPackage;
 
@@ -40,35 +40,35 @@ public class VizPackageImpl extends EPackageImpl implements VizPackage
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass mainTagEClass = null;
+  private EClass commandEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass normalTagEClass = null;
+  private EClass createEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass textTagEClass = null;
+  private EClass generateEClass = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EClass containerTagEClass = null;
+  private EEnum createBulletPointsEEnum = null;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private EEnum mainTagNameEEnum = null;
+  private EEnum generateDefaultEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -150,7 +150,7 @@ public class VizPackageImpl extends EPackageImpl implements VizPackage
    * @generated
    */
   @Override
-  public EReference getModel_MainTags()
+  public EReference getModel_Commands()
   {
     return (EReference)modelEClass.getEStructuralFeatures().get(0);
   }
@@ -161,9 +161,9 @@ public class VizPackageImpl extends EPackageImpl implements VizPackage
    * @generated
    */
   @Override
-  public EClass getMainTag()
+  public EClass getCommand()
   {
-    return mainTagEClass;
+    return commandEClass;
   }
 
   /**
@@ -172,9 +172,9 @@ public class VizPackageImpl extends EPackageImpl implements VizPackage
    * @generated
    */
   @Override
-  public EAttribute getMainTag_MainTagName()
+  public EClass getCreate()
   {
-    return (EAttribute)mainTagEClass.getEStructuralFeatures().get(0);
+    return createEClass;
   }
 
   /**
@@ -183,9 +183,9 @@ public class VizPackageImpl extends EPackageImpl implements VizPackage
    * @generated
    */
   @Override
-  public EReference getMainTag_NormalTags()
+  public EAttribute getCreate_Command()
   {
-    return (EReference)mainTagEClass.getEStructuralFeatures().get(1);
+    return (EAttribute)createEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -194,9 +194,9 @@ public class VizPackageImpl extends EPackageImpl implements VizPackage
    * @generated
    */
   @Override
-  public EClass getNormalTag()
+  public EAttribute getCreate_Bullets()
   {
-    return normalTagEClass;
+    return (EAttribute)createEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -205,9 +205,9 @@ public class VizPackageImpl extends EPackageImpl implements VizPackage
    * @generated
    */
   @Override
-  public EClass getTextTag()
+  public EClass getGenerate()
   {
-    return textTagEClass;
+    return generateEClass;
   }
 
   /**
@@ -216,9 +216,9 @@ public class VizPackageImpl extends EPackageImpl implements VizPackage
    * @generated
    */
   @Override
-  public EAttribute getTextTag_Name()
+  public EAttribute getGenerate_Command()
   {
-    return (EAttribute)textTagEClass.getEStructuralFeatures().get(0);
+    return (EAttribute)generateEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -227,9 +227,9 @@ public class VizPackageImpl extends EPackageImpl implements VizPackage
    * @generated
    */
   @Override
-  public EClass getContainerTag()
+  public EEnum getCreateBulletPoints()
   {
-    return containerTagEClass;
+    return createBulletPointsEEnum;
   }
 
   /**
@@ -238,20 +238,9 @@ public class VizPackageImpl extends EPackageImpl implements VizPackage
    * @generated
    */
   @Override
-  public EReference getContainerTag_NormalTags()
+  public EEnum getGenerateDefault()
   {
-    return (EReference)containerTagEClass.getEStructuralFeatures().get(0);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public EEnum getMainTagName()
-  {
-    return mainTagNameEEnum;
+    return generateDefaultEEnum;
   }
 
   /**
@@ -286,22 +275,20 @@ public class VizPackageImpl extends EPackageImpl implements VizPackage
 
     // Create classes and their features
     modelEClass = createEClass(MODEL);
-    createEReference(modelEClass, MODEL__MAIN_TAGS);
+    createEReference(modelEClass, MODEL__COMMANDS);
 
-    mainTagEClass = createEClass(MAIN_TAG);
-    createEAttribute(mainTagEClass, MAIN_TAG__MAIN_TAG_NAME);
-    createEReference(mainTagEClass, MAIN_TAG__NORMAL_TAGS);
+    commandEClass = createEClass(COMMAND);
 
-    normalTagEClass = createEClass(NORMAL_TAG);
+    createEClass = createEClass(CREATE);
+    createEAttribute(createEClass, CREATE__COMMAND);
+    createEAttribute(createEClass, CREATE__BULLETS);
 
-    textTagEClass = createEClass(TEXT_TAG);
-    createEAttribute(textTagEClass, TEXT_TAG__NAME);
-
-    containerTagEClass = createEClass(CONTAINER_TAG);
-    createEReference(containerTagEClass, CONTAINER_TAG__NORMAL_TAGS);
+    generateEClass = createEClass(GENERATE);
+    createEAttribute(generateEClass, GENERATE__COMMAND);
 
     // Create enums
-    mainTagNameEEnum = createEEnum(MAIN_TAG_NAME);
+    createBulletPointsEEnum = createEEnum(CREATE_BULLET_POINTS);
+    generateDefaultEEnum = createEEnum(GENERATE_DEFAULT);
   }
 
   /**
@@ -333,29 +320,28 @@ public class VizPackageImpl extends EPackageImpl implements VizPackage
     // Set bounds for type parameters
 
     // Add supertypes to classes
-    textTagEClass.getESuperTypes().add(this.getNormalTag());
-    containerTagEClass.getESuperTypes().add(this.getNormalTag());
+    createEClass.getESuperTypes().add(this.getCommand());
+    generateEClass.getESuperTypes().add(this.getCommand());
 
     // Initialize classes and features; add operations and parameters
     initEClass(modelEClass, Model.class, "Model", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getModel_MainTags(), this.getMainTag(), null, "mainTags", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getModel_Commands(), this.getCommand(), null, "commands", null, 0, -1, Model.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(mainTagEClass, MainTag.class, "MainTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getMainTag_MainTagName(), this.getMainTagName(), "mainTagName", null, 0, 1, MainTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEReference(getMainTag_NormalTags(), this.getNormalTag(), null, "normalTags", null, 0, -1, MainTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(commandEClass, Command.class, "Command", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
-    initEClass(normalTagEClass, NormalTag.class, "NormalTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEClass(createEClass, Create.class, "Create", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getCreate_Command(), this.getCreateBulletPoints(), "command", null, 0, 1, Create.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getCreate_Bullets(), ecorePackage.getEString(), "bullets", null, 0, 1, Create.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
-    initEClass(textTagEClass, TextTag.class, "TextTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEAttribute(getTextTag_Name(), ecorePackage.getEString(), "name", null, 0, 1, TextTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-    initEClass(containerTagEClass, ContainerTag.class, "ContainerTag", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-    initEReference(getContainerTag_NormalTags(), this.getNormalTag(), null, "normalTags", null, 0, -1, ContainerTag.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEClass(generateEClass, Generate.class, "Generate", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getGenerate_Command(), this.getGenerateDefault(), "command", null, 0, 1, Generate.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     // Initialize enums and add enum literals
-    initEEnum(mainTagNameEEnum, MainTagName.class, "MainTagName");
-    addEEnumLiteral(mainTagNameEEnum, MainTagName.HEAD);
-    addEEnumLiteral(mainTagNameEEnum, MainTagName.BODY);
+    initEEnum(createBulletPointsEEnum, CreateBulletPoints.class, "CreateBulletPoints");
+    addEEnumLiteral(createBulletPointsEEnum, CreateBulletPoints.BP);
+
+    initEEnum(generateDefaultEEnum, GenerateDefault.class, "GenerateDefault");
+    addEEnumLiteral(generateDefaultEEnum, GenerateDefault.DEFAULT);
 
     // Create resource
     createResource(eNS_URI);

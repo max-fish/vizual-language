@@ -69,13 +69,13 @@ public interface VizPackage extends EPackage
   int MODEL = 0;
 
   /**
-   * The feature id for the '<em><b>Main Tags</b></em>' containment reference list.
+   * The feature id for the '<em><b>Commands</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MODEL__MAIN_TAGS = 0;
+  int MODEL__COMMANDS = 0;
 
   /**
    * The number of structural features of the '<em>Model</em>' class.
@@ -87,126 +87,108 @@ public interface VizPackage extends EPackage
   int MODEL_FEATURE_COUNT = 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.vizual.viz.impl.MainTagImpl <em>Main Tag</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.vizual.viz.impl.CommandImpl <em>Command</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.vizual.viz.impl.MainTagImpl
-   * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getMainTag()
+   * @see org.xtext.example.vizual.viz.impl.CommandImpl
+   * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getCommand()
    * @generated
    */
-  int MAIN_TAG = 1;
+  int COMMAND = 1;
 
   /**
-   * The feature id for the '<em><b>Main Tag Name</b></em>' attribute.
+   * The number of structural features of the '<em>Command</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAIN_TAG__MAIN_TAG_NAME = 0;
+  int COMMAND_FEATURE_COUNT = 0;
 
   /**
-   * The feature id for the '<em><b>Normal Tags</b></em>' containment reference list.
+   * The meta object id for the '{@link org.xtext.example.vizual.viz.impl.CreateImpl <em>Create</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see org.xtext.example.vizual.viz.impl.CreateImpl
+   * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getCreate()
+   * @generated
+   */
+  int CREATE = 2;
+
+  /**
+   * The feature id for the '<em><b>Command</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAIN_TAG__NORMAL_TAGS = 1;
+  int CREATE__COMMAND = COMMAND_FEATURE_COUNT + 0;
 
   /**
-   * The number of structural features of the '<em>Main Tag</em>' class.
+   * The feature id for the '<em><b>Bullets</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int MAIN_TAG_FEATURE_COUNT = 2;
+  int CREATE__BULLETS = COMMAND_FEATURE_COUNT + 1;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.vizual.viz.impl.NormalTagImpl <em>Normal Tag</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.vizual.viz.impl.NormalTagImpl
-   * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getNormalTag()
-   * @generated
-   */
-  int NORMAL_TAG = 2;
-
-  /**
-   * The number of structural features of the '<em>Normal Tag</em>' class.
+   * The number of structural features of the '<em>Create</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int NORMAL_TAG_FEATURE_COUNT = 0;
+  int CREATE_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 2;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.vizual.viz.impl.TextTagImpl <em>Text Tag</em>}' class.
+   * The meta object id for the '{@link org.xtext.example.vizual.viz.impl.GenerateImpl <em>Generate</em>}' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.vizual.viz.impl.TextTagImpl
-   * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getTextTag()
+   * @see org.xtext.example.vizual.viz.impl.GenerateImpl
+   * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getGenerate()
    * @generated
    */
-  int TEXT_TAG = 3;
+  int GENERATE = 3;
 
   /**
-   * The feature id for the '<em><b>Name</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TEXT_TAG__NAME = NORMAL_TAG_FEATURE_COUNT + 0;
-
-  /**
-   * The number of structural features of the '<em>Text Tag</em>' class.
+   * The feature id for the '<em><b>Command</b></em>' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TEXT_TAG_FEATURE_COUNT = NORMAL_TAG_FEATURE_COUNT + 1;
+  int GENERATE__COMMAND = COMMAND_FEATURE_COUNT + 0;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.vizual.viz.impl.ContainerTagImpl <em>Container Tag</em>}' class.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see org.xtext.example.vizual.viz.impl.ContainerTagImpl
-   * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getContainerTag()
-   * @generated
-   */
-  int CONTAINER_TAG = 4;
-
-  /**
-   * The feature id for the '<em><b>Normal Tags</b></em>' containment reference list.
+   * The number of structural features of the '<em>Generate</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int CONTAINER_TAG__NORMAL_TAGS = NORMAL_TAG_FEATURE_COUNT + 0;
+  int GENERATE_FEATURE_COUNT = COMMAND_FEATURE_COUNT + 1;
 
   /**
-   * The number of structural features of the '<em>Container Tag</em>' class.
+   * The meta object id for the '{@link org.xtext.example.vizual.viz.CreateBulletPoints <em>Create Bullet Points</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
+   * @see org.xtext.example.vizual.viz.CreateBulletPoints
+   * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getCreateBulletPoints()
    * @generated
-   * @ordered
    */
-  int CONTAINER_TAG_FEATURE_COUNT = NORMAL_TAG_FEATURE_COUNT + 1;
+  int CREATE_BULLET_POINTS = 4;
 
   /**
-   * The meta object id for the '{@link org.xtext.example.vizual.viz.MainTagName <em>Main Tag Name</em>}' enum.
+   * The meta object id for the '{@link org.xtext.example.vizual.viz.GenerateDefault <em>Generate Default</em>}' enum.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see org.xtext.example.vizual.viz.MainTagName
-   * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getMainTagName()
+   * @see org.xtext.example.vizual.viz.GenerateDefault
+   * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getGenerateDefault()
    * @generated
    */
-  int MAIN_TAG_NAME = 5;
+  int GENERATE_DEFAULT = 5;
 
 
   /**
@@ -220,109 +202,98 @@ public interface VizPackage extends EPackage
   EClass getModel();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.vizual.viz.Model#getMainTags <em>Main Tags</em>}'.
+   * Returns the meta object for the containment reference list '{@link org.xtext.example.vizual.viz.Model#getCommands <em>Commands</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Main Tags</em>'.
-   * @see org.xtext.example.vizual.viz.Model#getMainTags()
+   * @return the meta object for the containment reference list '<em>Commands</em>'.
+   * @see org.xtext.example.vizual.viz.Model#getCommands()
    * @see #getModel()
    * @generated
    */
-  EReference getModel_MainTags();
+  EReference getModel_Commands();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.vizual.viz.MainTag <em>Main Tag</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.vizual.viz.Command <em>Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Main Tag</em>'.
-   * @see org.xtext.example.vizual.viz.MainTag
+   * @return the meta object for class '<em>Command</em>'.
+   * @see org.xtext.example.vizual.viz.Command
    * @generated
    */
-  EClass getMainTag();
+  EClass getCommand();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.vizual.viz.MainTag#getMainTagName <em>Main Tag Name</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.vizual.viz.Create <em>Create</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Main Tag Name</em>'.
-   * @see org.xtext.example.vizual.viz.MainTag#getMainTagName()
-   * @see #getMainTag()
+   * @return the meta object for class '<em>Create</em>'.
+   * @see org.xtext.example.vizual.viz.Create
    * @generated
    */
-  EAttribute getMainTag_MainTagName();
+  EClass getCreate();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.vizual.viz.MainTag#getNormalTags <em>Normal Tags</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.vizual.viz.Create#getCommand <em>Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Normal Tags</em>'.
-   * @see org.xtext.example.vizual.viz.MainTag#getNormalTags()
-   * @see #getMainTag()
+   * @return the meta object for the attribute '<em>Command</em>'.
+   * @see org.xtext.example.vizual.viz.Create#getCommand()
+   * @see #getCreate()
    * @generated
    */
-  EReference getMainTag_NormalTags();
+  EAttribute getCreate_Command();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.vizual.viz.NormalTag <em>Normal Tag</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.vizual.viz.Create#getBullets <em>Bullets</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Normal Tag</em>'.
-   * @see org.xtext.example.vizual.viz.NormalTag
+   * @return the meta object for the attribute '<em>Bullets</em>'.
+   * @see org.xtext.example.vizual.viz.Create#getBullets()
+   * @see #getCreate()
    * @generated
    */
-  EClass getNormalTag();
+  EAttribute getCreate_Bullets();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.vizual.viz.TextTag <em>Text Tag</em>}'.
+   * Returns the meta object for class '{@link org.xtext.example.vizual.viz.Generate <em>Generate</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Text Tag</em>'.
-   * @see org.xtext.example.vizual.viz.TextTag
+   * @return the meta object for class '<em>Generate</em>'.
+   * @see org.xtext.example.vizual.viz.Generate
    * @generated
    */
-  EClass getTextTag();
+  EClass getGenerate();
 
   /**
-   * Returns the meta object for the attribute '{@link org.xtext.example.vizual.viz.TextTag#getName <em>Name</em>}'.
+   * Returns the meta object for the attribute '{@link org.xtext.example.vizual.viz.Generate#getCommand <em>Command</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the attribute '<em>Name</em>'.
-   * @see org.xtext.example.vizual.viz.TextTag#getName()
-   * @see #getTextTag()
+   * @return the meta object for the attribute '<em>Command</em>'.
+   * @see org.xtext.example.vizual.viz.Generate#getCommand()
+   * @see #getGenerate()
    * @generated
    */
-  EAttribute getTextTag_Name();
+  EAttribute getGenerate_Command();
 
   /**
-   * Returns the meta object for class '{@link org.xtext.example.vizual.viz.ContainerTag <em>Container Tag</em>}'.
+   * Returns the meta object for enum '{@link org.xtext.example.vizual.viz.CreateBulletPoints <em>Create Bullet Points</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for class '<em>Container Tag</em>'.
-   * @see org.xtext.example.vizual.viz.ContainerTag
+   * @return the meta object for enum '<em>Create Bullet Points</em>'.
+   * @see org.xtext.example.vizual.viz.CreateBulletPoints
    * @generated
    */
-  EClass getContainerTag();
+  EEnum getCreateBulletPoints();
 
   /**
-   * Returns the meta object for the containment reference list '{@link org.xtext.example.vizual.viz.ContainerTag#getNormalTags <em>Normal Tags</em>}'.
+   * Returns the meta object for enum '{@link org.xtext.example.vizual.viz.GenerateDefault <em>Generate Default</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the meta object for the containment reference list '<em>Normal Tags</em>'.
-   * @see org.xtext.example.vizual.viz.ContainerTag#getNormalTags()
-   * @see #getContainerTag()
+   * @return the meta object for enum '<em>Generate Default</em>'.
+   * @see org.xtext.example.vizual.viz.GenerateDefault
    * @generated
    */
-  EReference getContainerTag_NormalTags();
-
-  /**
-   * Returns the meta object for enum '{@link org.xtext.example.vizual.viz.MainTagName <em>Main Tag Name</em>}'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the meta object for enum '<em>Main Tag Name</em>'.
-   * @see org.xtext.example.vizual.viz.MainTagName
-   * @generated
-   */
-  EEnum getMainTagName();
+  EEnum getGenerateDefault();
 
   /**
    * Returns the factory that creates the instances of the model.
@@ -358,94 +329,86 @@ public interface VizPackage extends EPackage
     EClass MODEL = eINSTANCE.getModel();
 
     /**
-     * The meta object literal for the '<em><b>Main Tags</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Commands</b></em>' containment reference list feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MODEL__MAIN_TAGS = eINSTANCE.getModel_MainTags();
+    EReference MODEL__COMMANDS = eINSTANCE.getModel_Commands();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.vizual.viz.impl.MainTagImpl <em>Main Tag</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.vizual.viz.impl.CommandImpl <em>Command</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.vizual.viz.impl.MainTagImpl
-     * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getMainTag()
+     * @see org.xtext.example.vizual.viz.impl.CommandImpl
+     * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getCommand()
      * @generated
      */
-    EClass MAIN_TAG = eINSTANCE.getMainTag();
+    EClass COMMAND = eINSTANCE.getCommand();
 
     /**
-     * The meta object literal for the '<em><b>Main Tag Name</b></em>' attribute feature.
+     * The meta object literal for the '{@link org.xtext.example.vizual.viz.impl.CreateImpl <em>Create</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.example.vizual.viz.impl.CreateImpl
+     * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getCreate()
      * @generated
      */
-    EAttribute MAIN_TAG__MAIN_TAG_NAME = eINSTANCE.getMainTag_MainTagName();
+    EClass CREATE = eINSTANCE.getCreate();
 
     /**
-     * The meta object literal for the '<em><b>Normal Tags</b></em>' containment reference list feature.
+     * The meta object literal for the '<em><b>Command</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EReference MAIN_TAG__NORMAL_TAGS = eINSTANCE.getMainTag_NormalTags();
+    EAttribute CREATE__COMMAND = eINSTANCE.getCreate_Command();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.vizual.viz.impl.NormalTagImpl <em>Normal Tag</em>}' class.
+     * The meta object literal for the '<em><b>Bullets</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.vizual.viz.impl.NormalTagImpl
-     * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getNormalTag()
      * @generated
      */
-    EClass NORMAL_TAG = eINSTANCE.getNormalTag();
+    EAttribute CREATE__BULLETS = eINSTANCE.getCreate_Bullets();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.vizual.viz.impl.TextTagImpl <em>Text Tag</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.vizual.viz.impl.GenerateImpl <em>Generate</em>}' class.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.vizual.viz.impl.TextTagImpl
-     * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getTextTag()
+     * @see org.xtext.example.vizual.viz.impl.GenerateImpl
+     * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getGenerate()
      * @generated
      */
-    EClass TEXT_TAG = eINSTANCE.getTextTag();
+    EClass GENERATE = eINSTANCE.getGenerate();
 
     /**
-     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * The meta object literal for the '<em><b>Command</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TEXT_TAG__NAME = eINSTANCE.getTextTag_Name();
+    EAttribute GENERATE__COMMAND = eINSTANCE.getGenerate_Command();
 
     /**
-     * The meta object literal for the '{@link org.xtext.example.vizual.viz.impl.ContainerTagImpl <em>Container Tag</em>}' class.
+     * The meta object literal for the '{@link org.xtext.example.vizual.viz.CreateBulletPoints <em>Create Bullet Points</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see org.xtext.example.vizual.viz.impl.ContainerTagImpl
-     * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getContainerTag()
+     * @see org.xtext.example.vizual.viz.CreateBulletPoints
+     * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getCreateBulletPoints()
      * @generated
      */
-    EClass CONTAINER_TAG = eINSTANCE.getContainerTag();
+    EEnum CREATE_BULLET_POINTS = eINSTANCE.getCreateBulletPoints();
 
     /**
-     * The meta object literal for the '<em><b>Normal Tags</b></em>' containment reference list feature.
+     * The meta object literal for the '{@link org.xtext.example.vizual.viz.GenerateDefault <em>Generate Default</em>}' enum.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * @see org.xtext.example.vizual.viz.GenerateDefault
+     * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getGenerateDefault()
      * @generated
      */
-    EReference CONTAINER_TAG__NORMAL_TAGS = eINSTANCE.getContainerTag_NormalTags();
-
-    /**
-     * The meta object literal for the '{@link org.xtext.example.vizual.viz.MainTagName <em>Main Tag Name</em>}' enum.
-     * <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * @see org.xtext.example.vizual.viz.MainTagName
-     * @see org.xtext.example.vizual.viz.impl.VizPackageImpl#getMainTagName()
-     * @generated
-     */
-    EEnum MAIN_TAG_NAME = eINSTANCE.getMainTagName();
+    EEnum GENERATE_DEFAULT = eINSTANCE.getGenerateDefault();
 
   }
 

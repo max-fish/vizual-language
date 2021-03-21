@@ -7,14 +7,14 @@ import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the model object '<em><b>Normal Tag</b></em>'.
+ * A representation of the model object '<em><b>Command</b></em>'.
  * <!-- end-user-doc -->
  *
  *
- * @see org.xtext.example.vizual.viz.VizPackage#getNormalTag()
+ * @see org.xtext.example.vizual.viz.VizPackage#getCommand()
  * @model
  * @generated
  */
-public interface NormalTag extends EObject
+public interface Command extends EObject
 {
-} // NormalTag
+} // Command

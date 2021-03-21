@@ -6,23 +6,22 @@
     complianceLevel="8.0" copyrightFields="false" runtimeVersion="2.20">
   <genPackages prefix="Viz" basePackage="org.xtext.example.vizual" disposableProviderFactory="true"
       fileExtensions="viz" ecorePackage="Viz.ecore#/">
-    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Viz.ecore#//MainTagName">
-      <genEnumLiterals ecoreEnumLiteral="Viz.ecore#//MainTagName/head"/>
-      <genEnumLiterals ecoreEnumLiteral="Viz.ecore#//MainTagName/body"/>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Viz.ecore#//CreateBulletPoints">
+      <genEnumLiterals ecoreEnumLiteral="Viz.ecore#//CreateBulletPoints/BP"/>
+    </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="Viz.ecore#//GenerateDefault">
+      <genEnumLiterals ecoreEnumLiteral="Viz.ecore#//GenerateDefault/default"/>
     </genEnums>
     <genClasses ecoreClass="Viz.ecore#//Model">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Viz.ecore#//Model/mainTags"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Viz.ecore#//Model/commands"/>
     </genClasses>
-    <genClasses ecoreClass="Viz.ecore#//MainTag">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Viz.ecore#//MainTag/mainTagName"/>
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Viz.ecore#//MainTag/normalTags"/>
+    <genClasses ecoreClass="Viz.ecore#//Command"/>
+    <genClasses ecoreClass="Viz.ecore#//Create">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Viz.ecore#//Create/command"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Viz.ecore#//Create/bullets"/>
     </genClasses>
-    <genClasses ecoreClass="Viz.ecore#//NormalTag"/>
-    <genClasses ecoreClass="Viz.ecore#//TextTag">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Viz.ecore#//TextTag/name"/>
-    </genClasses>
-    <genClasses ecoreClass="Viz.ecore#//ContainerTag">
-      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference Viz.ecore#//ContainerTag/normalTags"/>
+    <genClasses ecoreClass="Viz.ecore#//Generate">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute Viz.ecore#//Generate/command"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

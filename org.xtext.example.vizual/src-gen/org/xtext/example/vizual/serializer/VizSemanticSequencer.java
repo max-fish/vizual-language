@@ -15,10 +15,9 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import org.xtext.example.vizual.services.VizGrammarAccess;
-import org.xtext.example.vizual.viz.ContainerTag;
-import org.xtext.example.vizual.viz.MainTag;
+import org.xtext.example.vizual.viz.Create;
+import org.xtext.example.vizual.viz.Generate;
 import org.xtext.example.vizual.viz.Model;
-import org.xtext.example.vizual.viz.TextTag;
 import org.xtext.example.vizual.viz.VizPackage;
 
 @SuppressWarnings("all")
@@ -35,17 +34,14 @@ public class VizSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == VizPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
-			case VizPackage.CONTAINER_TAG:
-				sequence_ContainerTag(context, (ContainerTag) semanticObject); 
+			case VizPackage.CREATE:
+				sequence_Create(context, (Create) semanticObject); 
 				return; 
-			case VizPackage.MAIN_TAG:
-				sequence_MainTag(context, (MainTag) semanticObject); 
+			case VizPackage.GENERATE:
+				sequence_Generate(context, (Generate) semanticObject); 
 				return; 
 			case VizPackage.MODEL:
 				sequence_Model(context, (Model) semanticObject); 
-				return; 
-			case VizPackage.TEXT_TAG:
-				sequence_TextTag(context, (TextTag) semanticObject); 
 				return; 
 			}
 		if (errorAcceptor != null)
@@ -54,26 +50,42 @@ public class VizSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	
 	/**
 	 * Contexts:
-	 *     NormalTag returns ContainerTag
-	 *     ContainerTag returns ContainerTag
+	 *     Command returns Create
+	 *     Create returns Create
 	 *
 	 * Constraint:
-	 *     normalTags+=NormalTag*
+	 *     (command=CreateBulletPoints bullets=STRING)
 	 */
-	protected void sequence_ContainerTag(ISerializationContext context, ContainerTag semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Create(ISerializationContext context, Create semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, VizPackage.Literals.CREATE__COMMAND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VizPackage.Literals.CREATE__COMMAND));
+			if (transientValues.isValueTransient(semanticObject, VizPackage.Literals.CREATE__BULLETS) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VizPackage.Literals.CREATE__BULLETS));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getCreateAccess().getCommandCreateBulletPointsEnumRuleCall_0_0(), semanticObject.getCommand());
+		feeder.accept(grammarAccess.getCreateAccess().getBulletsSTRINGTerminalRuleCall_2_0(), semanticObject.getBullets());
+		feeder.finish();
 	}
 	
 	
 	/**
 	 * Contexts:
-	 *     MainTag returns MainTag
+	 *     Command returns Generate
+	 *     Generate returns Generate
 	 *
 	 * Constraint:
-	 *     (mainTagName=MainTagName normalTags+=NormalTag*)
+	 *     command=GenerateDefault
 	 */
-	protected void sequence_MainTag(ISerializationContext context, MainTag semanticObject) {
-		genericSequencer.createSequence(context, semanticObject);
+	protected void sequence_Generate(ISerializationContext context, Generate semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, VizPackage.Literals.GENERATE__COMMAND) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VizPackage.Literals.GENERATE__COMMAND));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getGenerateAccess().getCommandGenerateDefaultEnumRuleCall_0(), semanticObject.getCommand());
+		feeder.finish();
 	}
 	
 	
@@ -82,29 +94,10 @@ public class VizSemanticSequencer extends AbstractDelegatingSemanticSequencer {
 	 *     Model returns Model
 	 *
 	 * Constraint:
-	 *     mainTags+=MainTag+
+	 *     commands+=Command+
 	 */
 	protected void sequence_Model(ISerializationContext context, Model semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
-	}
-	
-	
-	/**
-	 * Contexts:
-	 *     NormalTag returns TextTag
-	 *     TextTag returns TextTag
-	 *
-	 * Constraint:
-	 *     name=ID
-	 */
-	protected void sequence_TextTag(ISerializationContext context, TextTag semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, VizPackage.Literals.TEXT_TAG__NAME) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, VizPackage.Literals.TEXT_TAG__NAME));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getTextTagAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
-		feeder.finish();
 	}
 	
 	

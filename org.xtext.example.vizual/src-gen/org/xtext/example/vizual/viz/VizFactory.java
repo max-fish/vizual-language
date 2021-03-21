@@ -33,40 +33,31 @@ public interface VizFactory extends EFactory
   Model createModel();
 
   /**
-   * Returns a new object of class '<em>Main Tag</em>'.
+   * Returns a new object of class '<em>Command</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Main Tag</em>'.
+   * @return a new object of class '<em>Command</em>'.
    * @generated
    */
-  MainTag createMainTag();
+  Command createCommand();
 
   /**
-   * Returns a new object of class '<em>Normal Tag</em>'.
+   * Returns a new object of class '<em>Create</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Normal Tag</em>'.
+   * @return a new object of class '<em>Create</em>'.
    * @generated
    */
-  NormalTag createNormalTag();
+  Create createCreate();
 
   /**
-   * Returns a new object of class '<em>Text Tag</em>'.
+   * Returns a new object of class '<em>Generate</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return a new object of class '<em>Text Tag</em>'.
+   * @return a new object of class '<em>Generate</em>'.
    * @generated
    */
-  TextTag createTextTag();
-
-  /**
-   * Returns a new object of class '<em>Container Tag</em>'.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return a new object of class '<em>Container Tag</em>'.
-   * @generated
-   */
-  ContainerTag createContainerTag();
+  Generate createGenerate();
 
   /**
    * Returns the package supported by this factory.

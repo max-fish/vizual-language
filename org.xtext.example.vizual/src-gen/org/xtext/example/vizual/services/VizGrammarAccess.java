@@ -6,7 +6,6 @@ package org.xtext.example.vizual.services;
 import com.google.inject.Inject;
 import com.google.inject.Singleton;
 import java.util.List;
-import org.eclipse.xtext.Action;
 import org.eclipse.xtext.Alternatives;
 import org.eclipse.xtext.Assignment;
 import org.eclipse.xtext.EnumLiteralDeclaration;
@@ -27,193 +26,131 @@ public class VizGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 	
 	public class ModelElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.vizual.Viz.Model");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cHtmlKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cMainTagsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cMainTagsMainTagParserRuleCall_1_0 = (RuleCall)cMainTagsAssignment_1.eContents().get(0);
+		private final Assignment cCommandsAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cCommandsCommandParserRuleCall_0 = (RuleCall)cCommandsAssignment.eContents().get(0);
 		
 		//Model:
-		//    "html" mainTags+=MainTag*;
+		//    commands+=Command*;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//"html" mainTags+=MainTag*
-		public Group getGroup() { return cGroup; }
+		//commands+=Command*
+		public Assignment getCommandsAssignment() { return cCommandsAssignment; }
 		
-		//"html"
-		public Keyword getHtmlKeyword_0() { return cHtmlKeyword_0; }
-		
-		//mainTags+=MainTag*
-		public Assignment getMainTagsAssignment_1() { return cMainTagsAssignment_1; }
-		
-		//MainTag
-		public RuleCall getMainTagsMainTagParserRuleCall_1_0() { return cMainTagsMainTagParserRuleCall_1_0; }
+		//Command
+		public RuleCall getCommandsCommandParserRuleCall_0() { return cCommandsCommandParserRuleCall_0; }
 	}
-	public class MainTagElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.vizual.Viz.MainTag");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Assignment cMainTagNameAssignment_0 = (Assignment)cGroup.eContents().get(0);
-		private final RuleCall cMainTagNameMainTagNameEnumRuleCall_0_0 = (RuleCall)cMainTagNameAssignment_0.eContents().get(0);
-		private final Assignment cNormalTagsAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNormalTagsNormalTagParserRuleCall_1_0 = (RuleCall)cNormalTagsAssignment_1.eContents().get(0);
-		
-		//MainTag:
-		//    mainTagName = MainTagName normalTags+=(NormalTag)*
-		//;
-		@Override public ParserRule getRule() { return rule; }
-		
-		//mainTagName = MainTagName normalTags+=(NormalTag)*
-		public Group getGroup() { return cGroup; }
-		
-		//mainTagName = MainTagName
-		public Assignment getMainTagNameAssignment_0() { return cMainTagNameAssignment_0; }
-		
-		//MainTagName
-		public RuleCall getMainTagNameMainTagNameEnumRuleCall_0_0() { return cMainTagNameMainTagNameEnumRuleCall_0_0; }
-		
-		//normalTags+=(NormalTag)*
-		public Assignment getNormalTagsAssignment_1() { return cNormalTagsAssignment_1; }
-		
-		//(NormalTag)
-		public RuleCall getNormalTagsNormalTagParserRuleCall_1_0() { return cNormalTagsNormalTagParserRuleCall_1_0; }
-	}
-	public class NormalTagElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.vizual.Viz.NormalTag");
+	public class CommandElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.vizual.Viz.Command");
 		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final RuleCall cTextTagParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
-		private final RuleCall cContainerTagParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cCreateParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cGenerateParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
 		
-		//NormalTag:
-		//    (TextTag | ContainerTag)
+		//Command:
+		//    Create|Generate
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//(TextTag | ContainerTag)
+		//Create|Generate
 		public Alternatives getAlternatives() { return cAlternatives; }
 		
-		//TextTag
-		public RuleCall getTextTagParserRuleCall_0() { return cTextTagParserRuleCall_0; }
+		//Create
+		public RuleCall getCreateParserRuleCall_0() { return cCreateParserRuleCall_0; }
 		
-		//ContainerTag
-		public RuleCall getContainerTagParserRuleCall_1() { return cContainerTagParserRuleCall_1; }
+		//Generate
+		public RuleCall getGenerateParserRuleCall_1() { return cGenerateParserRuleCall_1; }
 	}
-	public class TextTagElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.vizual.Viz.TextTag");
+	public class CreateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.vizual.Viz.Create");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Alternatives cAlternatives_0 = (Alternatives)cGroup.eContents().get(0);
-		private final Keyword cH1Keyword_0_0 = (Keyword)cAlternatives_0.eContents().get(0);
-		private final Keyword cH2Keyword_0_1 = (Keyword)cAlternatives_0.eContents().get(1);
-		private final Keyword cH3Keyword_0_2 = (Keyword)cAlternatives_0.eContents().get(2);
-		private final Keyword cH4Keyword_0_3 = (Keyword)cAlternatives_0.eContents().get(3);
-		private final Keyword cH5Keyword_0_4 = (Keyword)cAlternatives_0.eContents().get(4);
-		private final Keyword cH6Keyword_0_5 = (Keyword)cAlternatives_0.eContents().get(5);
-		private final Keyword cPKeyword_0_6 = (Keyword)cAlternatives_0.eContents().get(6);
-		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cCommandAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cCommandCreateBulletPointsEnumRuleCall_0_0 = (RuleCall)cCommandAssignment_0.eContents().get(0);
+		private final Keyword cWithKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cBulletsAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cBulletsSTRINGTerminalRuleCall_2_0 = (RuleCall)cBulletsAssignment_2.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
-		//TextTag:
-		//    ("h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p") name=ID
+		//Create:
+		//    command = CreateBulletPoints 'with(' bullets=STRING ')'
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//("h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p") name=ID
+		//command = CreateBulletPoints 'with(' bullets=STRING ')'
 		public Group getGroup() { return cGroup; }
 		
-		//("h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p")
-		public Alternatives getAlternatives_0() { return cAlternatives_0; }
+		//command = CreateBulletPoints
+		public Assignment getCommandAssignment_0() { return cCommandAssignment_0; }
 		
-		//"h1"
-		public Keyword getH1Keyword_0_0() { return cH1Keyword_0_0; }
+		//CreateBulletPoints
+		public RuleCall getCommandCreateBulletPointsEnumRuleCall_0_0() { return cCommandCreateBulletPointsEnumRuleCall_0_0; }
 		
-		//"h2"
-		public Keyword getH2Keyword_0_1() { return cH2Keyword_0_1; }
+		//'with('
+		public Keyword getWithKeyword_1() { return cWithKeyword_1; }
 		
-		//"h3"
-		public Keyword getH3Keyword_0_2() { return cH3Keyword_0_2; }
+		//bullets=STRING
+		public Assignment getBulletsAssignment_2() { return cBulletsAssignment_2; }
 		
-		//"h4"
-		public Keyword getH4Keyword_0_3() { return cH4Keyword_0_3; }
+		//STRING
+		public RuleCall getBulletsSTRINGTerminalRuleCall_2_0() { return cBulletsSTRINGTerminalRuleCall_2_0; }
 		
-		//"h5"
-		public Keyword getH5Keyword_0_4() { return cH5Keyword_0_4; }
-		
-		//"h6"
-		public Keyword getH6Keyword_0_5() { return cH6Keyword_0_5; }
-		
-		//"p"
-		public Keyword getPKeyword_0_6() { return cPKeyword_0_6; }
-		
-		//name=ID
-		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
-		
-		//ID
-		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		//')'
+		public Keyword getRightParenthesisKeyword_3() { return cRightParenthesisKeyword_3; }
 	}
-	public class ContainerTagElements extends AbstractParserRuleElementFinder {
-		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.vizual.Viz.ContainerTag");
-		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Action cContainerTagAction_0 = (Action)cGroup.eContents().get(0);
-		private final Keyword cDivKeyword_1 = (Keyword)cGroup.eContents().get(1);
-		private final Assignment cNormalTagsAssignment_2 = (Assignment)cGroup.eContents().get(2);
-		private final RuleCall cNormalTagsNormalTagParserRuleCall_2_0 = (RuleCall)cNormalTagsAssignment_2.eContents().get(0);
-		private final Keyword cEndKeyword_3 = (Keyword)cGroup.eContents().get(3);
+	public class GenerateElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.vizual.Viz.Generate");
+		private final Assignment cCommandAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cCommandGenerateDefaultEnumRuleCall_0 = (RuleCall)cCommandAssignment.eContents().get(0);
 		
-		//ContainerTag:
-		//    {ContainerTag} "div" normalTags+=NormalTag* "end"
+		//Generate:
+		//    command = GenerateDefault
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
-		//{ContainerTag} "div" normalTags+=NormalTag* "end"
-		public Group getGroup() { return cGroup; }
+		//command = GenerateDefault
+		public Assignment getCommandAssignment() { return cCommandAssignment; }
 		
-		//{ContainerTag}
-		public Action getContainerTagAction_0() { return cContainerTagAction_0; }
-		
-		//"div"
-		public Keyword getDivKeyword_1() { return cDivKeyword_1; }
-		
-		//normalTags+=NormalTag*
-		public Assignment getNormalTagsAssignment_2() { return cNormalTagsAssignment_2; }
-		
-		//NormalTag
-		public RuleCall getNormalTagsNormalTagParserRuleCall_2_0() { return cNormalTagsNormalTagParserRuleCall_2_0; }
-		
-		//"end"
-		public Keyword getEndKeyword_3() { return cEndKeyword_3; }
+		//GenerateDefault
+		public RuleCall getCommandGenerateDefaultEnumRuleCall_0() { return cCommandGenerateDefaultEnumRuleCall_0; }
 	}
 	
-	public class MainTagNameElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
-		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.vizual.Viz.MainTagName");
-		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
-		private final EnumLiteralDeclaration cHeadEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
-		private final Keyword cHeadHeadKeyword_0_0 = (Keyword)cHeadEnumLiteralDeclaration_0.eContents().get(0);
-		private final EnumLiteralDeclaration cBodyEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
-		private final Keyword cBodyBodyKeyword_1_0 = (Keyword)cBodyEnumLiteralDeclaration_1.eContents().get(0);
+	public class CreateBulletPointsElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.vizual.Viz.CreateBulletPoints");
+		private final EnumLiteralDeclaration cBPEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cBPBPKeyword_0 = (Keyword)cBPEnumLiteralDeclaration.eContents().get(0);
 		
-		//enum MainTagName:
-		//    head | body
+		//enum CreateBulletPoints:
+		//    BP = 'BP'
 		//;
 		public EnumRule getRule() { return rule; }
 		
-		//head | body
-		public Alternatives getAlternatives() { return cAlternatives; }
+		//BP = 'BP'
+		public EnumLiteralDeclaration getBPEnumLiteralDeclaration() { return cBPEnumLiteralDeclaration; }
 		
-		//head
-		public EnumLiteralDeclaration getHeadEnumLiteralDeclaration_0() { return cHeadEnumLiteralDeclaration_0; }
+		//'BP'
+		public Keyword getBPBPKeyword_0() { return cBPBPKeyword_0; }
+	}
+	public class GenerateDefaultElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.vizual.Viz.GenerateDefault");
+		private final EnumLiteralDeclaration cDefaultEnumLiteralDeclaration = (EnumLiteralDeclaration)rule.eContents().get(1);
+		private final Keyword cDefaultGenerateDefaultDocumentKeyword_0 = (Keyword)cDefaultEnumLiteralDeclaration.eContents().get(0);
 		
-		public Keyword getHeadHeadKeyword_0_0() { return cHeadHeadKeyword_0_0; }
+		//enum GenerateDefault:
+		//    default='GenerateDefaultDocument'
+		//;
+		public EnumRule getRule() { return rule; }
 		
-		//body
-		public EnumLiteralDeclaration getBodyEnumLiteralDeclaration_1() { return cBodyEnumLiteralDeclaration_1; }
+		//default='GenerateDefaultDocument'
+		public EnumLiteralDeclaration getDefaultEnumLiteralDeclaration() { return cDefaultEnumLiteralDeclaration; }
 		
-		public Keyword getBodyBodyKeyword_1_0() { return cBodyBodyKeyword_1_0; }
+		//'GenerateDefaultDocument'
+		public Keyword getDefaultGenerateDefaultDocumentKeyword_0() { return cDefaultGenerateDefaultDocumentKeyword_0; }
 	}
 	
 	private final ModelElements pModel;
-	private final MainTagElements pMainTag;
-	private final NormalTagElements pNormalTag;
-	private final TextTagElements pTextTag;
-	private final ContainerTagElements pContainerTag;
-	private final MainTagNameElements eMainTagName;
+	private final CommandElements pCommand;
+	private final CreateElements pCreate;
+	private final CreateBulletPointsElements eCreateBulletPoints;
+	private final GenerateElements pGenerate;
+	private final GenerateDefaultElements eGenerateDefault;
 	private final TerminalRule tNEW_LINE;
 	private final TerminalRule tTAB_SPACE;
 	
@@ -227,11 +164,11 @@ public class VizGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pModel = new ModelElements();
-		this.pMainTag = new MainTagElements();
-		this.pNormalTag = new NormalTagElements();
-		this.pTextTag = new TextTagElements();
-		this.pContainerTag = new ContainerTagElements();
-		this.eMainTagName = new MainTagNameElements();
+		this.pCommand = new CommandElements();
+		this.pCreate = new CreateElements();
+		this.eCreateBulletPoints = new CreateBulletPointsElements();
+		this.pGenerate = new GenerateElements();
+		this.eGenerateDefault = new GenerateDefaultElements();
 		this.tNEW_LINE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.vizual.Viz.NEW_LINE");
 		this.tTAB_SPACE = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "org.xtext.example.vizual.Viz.TAB_SPACE");
 	}
@@ -264,7 +201,7 @@ public class VizGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 
 	
 	//Model:
-	//    "html" mainTags+=MainTag*;
+	//    commands+=Command*;
 	public ModelElements getModelAccess() {
 		return pModel;
 	}
@@ -273,59 +210,59 @@ public class VizGrammarAccess extends AbstractElementFinder.AbstractGrammarEleme
 		return getModelAccess().getRule();
 	}
 	
-	//MainTag:
-	//    mainTagName = MainTagName normalTags+=(NormalTag)*
+	//Command:
+	//    Create|Generate
 	//;
-	public MainTagElements getMainTagAccess() {
-		return pMainTag;
+	public CommandElements getCommandAccess() {
+		return pCommand;
 	}
 	
-	public ParserRule getMainTagRule() {
-		return getMainTagAccess().getRule();
+	public ParserRule getCommandRule() {
+		return getCommandAccess().getRule();
 	}
 	
-	//NormalTag:
-	//    (TextTag | ContainerTag)
+	//Create:
+	//    command = CreateBulletPoints 'with(' bullets=STRING ')'
 	//;
-	public NormalTagElements getNormalTagAccess() {
-		return pNormalTag;
+	public CreateElements getCreateAccess() {
+		return pCreate;
 	}
 	
-	public ParserRule getNormalTagRule() {
-		return getNormalTagAccess().getRule();
+	public ParserRule getCreateRule() {
+		return getCreateAccess().getRule();
 	}
 	
-	//TextTag:
-	//    ("h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p") name=ID
+	//enum CreateBulletPoints:
+	//    BP = 'BP'
 	//;
-	public TextTagElements getTextTagAccess() {
-		return pTextTag;
+	public CreateBulletPointsElements getCreateBulletPointsAccess() {
+		return eCreateBulletPoints;
 	}
 	
-	public ParserRule getTextTagRule() {
-		return getTextTagAccess().getRule();
+	public EnumRule getCreateBulletPointsRule() {
+		return getCreateBulletPointsAccess().getRule();
 	}
 	
-	//ContainerTag:
-	//    {ContainerTag} "div" normalTags+=NormalTag* "end"
+	//Generate:
+	//    command = GenerateDefault
 	//;
-	public ContainerTagElements getContainerTagAccess() {
-		return pContainerTag;
+	public GenerateElements getGenerateAccess() {
+		return pGenerate;
 	}
 	
-	public ParserRule getContainerTagRule() {
-		return getContainerTagAccess().getRule();
+	public ParserRule getGenerateRule() {
+		return getGenerateAccess().getRule();
 	}
 	
-	//enum MainTagName:
-	//    head | body
+	//enum GenerateDefault:
+	//    default='GenerateDefaultDocument'
 	//;
-	public MainTagNameElements getMainTagNameAccess() {
-		return eMainTagName;
+	public GenerateDefaultElements getGenerateDefaultAccess() {
+		return eGenerateDefault;
 	}
 	
-	public EnumRule getMainTagNameRule() {
-		return getMainTagNameAccess().getRule();
+	public EnumRule getGenerateDefaultRule() {
+		return getGenerateDefaultAccess().getRule();
 	}
 	
 	//terminal NEW_LINE:

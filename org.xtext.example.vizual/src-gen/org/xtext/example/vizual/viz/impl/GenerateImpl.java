@@ -9,50 +9,51 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
-import org.xtext.example.vizual.viz.TextTag;
+import org.xtext.example.vizual.viz.Generate;
+import org.xtext.example.vizual.viz.GenerateDefault;
 import org.xtext.example.vizual.viz.VizPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Text Tag</b></em>'.
+ * An implementation of the model object '<em><b>Generate</b></em>'.
  * <!-- end-user-doc -->
  * <p>
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.vizual.viz.impl.TextTagImpl#getName <em>Name</em>}</li>
+ *   <li>{@link org.xtext.example.vizual.viz.impl.GenerateImpl#getCommand <em>Command</em>}</li>
  * </ul>
  *
  * @generated
  */
-public class TextTagImpl extends NormalTagImpl implements TextTag
+public class GenerateImpl extends CommandImpl implements Generate
 {
   /**
-   * The default value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The default value of the '{@link #getCommand() <em>Command</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getCommand()
    * @generated
    * @ordered
    */
-  protected static final String NAME_EDEFAULT = null;
+  protected static final GenerateDefault COMMAND_EDEFAULT = GenerateDefault.DEFAULT;
 
   /**
-   * The cached value of the '{@link #getName() <em>Name</em>}' attribute.
+   * The cached value of the '{@link #getCommand() <em>Command</em>}' attribute.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getName()
+   * @see #getCommand()
    * @generated
    * @ordered
    */
-  protected String name = NAME_EDEFAULT;
+  protected GenerateDefault command = COMMAND_EDEFAULT;
 
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected TextTagImpl()
+  protected GenerateImpl()
   {
     super();
   }
@@ -65,7 +66,7 @@ public class TextTagImpl extends NormalTagImpl implements TextTag
   @Override
   protected EClass eStaticClass()
   {
-    return VizPackage.Literals.TEXT_TAG;
+    return VizPackage.Literals.GENERATE;
   }
 
   /**
@@ -74,9 +75,9 @@ public class TextTagImpl extends NormalTagImpl implements TextTag
    * @generated
    */
   @Override
-  public String getName()
+  public GenerateDefault getCommand()
   {
-    return name;
+    return command;
   }
 
   /**
@@ -85,12 +86,12 @@ public class TextTagImpl extends NormalTagImpl implements TextTag
    * @generated
    */
   @Override
-  public void setName(String newName)
+  public void setCommand(GenerateDefault newCommand)
   {
-    String oldName = name;
-    name = newName;
+    GenerateDefault oldCommand = command;
+    command = newCommand == null ? COMMAND_EDEFAULT : newCommand;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, VizPackage.TEXT_TAG__NAME, oldName, name));
+      eNotify(new ENotificationImpl(this, Notification.SET, VizPackage.GENERATE__COMMAND, oldCommand, command));
   }
 
   /**
@@ -103,8 +104,8 @@ public class TextTagImpl extends NormalTagImpl implements TextTag
   {
     switch (featureID)
     {
-      case VizPackage.TEXT_TAG__NAME:
-        return getName();
+      case VizPackage.GENERATE__COMMAND:
+        return getCommand();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -119,8 +120,8 @@ public class TextTagImpl extends NormalTagImpl implements TextTag
   {
     switch (featureID)
     {
-      case VizPackage.TEXT_TAG__NAME:
-        setName((String)newValue);
+      case VizPackage.GENERATE__COMMAND:
+        setCommand((GenerateDefault)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -136,8 +137,8 @@ public class TextTagImpl extends NormalTagImpl implements TextTag
   {
     switch (featureID)
     {
-      case VizPackage.TEXT_TAG__NAME:
-        setName(NAME_EDEFAULT);
+      case VizPackage.GENERATE__COMMAND:
+        setCommand(COMMAND_EDEFAULT);
         return;
     }
     super.eUnset(featureID);
@@ -153,8 +154,8 @@ public class TextTagImpl extends NormalTagImpl implements TextTag
   {
     switch (featureID)
     {
-      case VizPackage.TEXT_TAG__NAME:
-        return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case VizPackage.GENERATE__COMMAND:
+        return command != COMMAND_EDEFAULT;
     }
     return super.eIsSet(featureID);
   }
@@ -170,10 +171,10 @@ public class TextTagImpl extends NormalTagImpl implements TextTag
     if (eIsProxy()) return super.toString();
 
     StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (name: ");
-    result.append(name);
+    result.append(" (command: ");
+    result.append(command);
     result.append(')');
     return result.toString();
   }
 
-} //TextTagImpl
+} //GenerateImpl

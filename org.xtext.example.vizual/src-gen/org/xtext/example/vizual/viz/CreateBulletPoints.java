@@ -11,91 +11,69 @@ import org.eclipse.emf.common.util.Enumerator;
 
 /**
  * <!-- begin-user-doc -->
- * A representation of the literals of the enumeration '<em><b>Main Tag Name</b></em>',
+ * A representation of the literals of the enumeration '<em><b>Create Bullet Points</b></em>',
  * and utility methods for working with them.
  * <!-- end-user-doc -->
- * @see org.xtext.example.vizual.viz.VizPackage#getMainTagName()
+ * @see org.xtext.example.vizual.viz.VizPackage#getCreateBulletPoints()
  * @model
  * @generated
  */
-public enum MainTagName implements Enumerator
+public enum CreateBulletPoints implements Enumerator
 {
   /**
-   * The '<em><b>Head</b></em>' literal object.
+   * The '<em><b>BP</b></em>' literal object.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #HEAD_VALUE
+   * @see #BP_VALUE
    * @generated
    * @ordered
    */
-  HEAD(0, "head", "head"),
+  BP(0, "BP", "BP");
 
   /**
-   * The '<em><b>Body</b></em>' literal object.
+   * The '<em><b>BP</b></em>' literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #BODY_VALUE
+   * @see #BP
+   * @model
    * @generated
    * @ordered
    */
-  BODY(1, "body", "body");
+  public static final int BP_VALUE = 0;
 
   /**
-   * The '<em><b>Head</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #HEAD
-   * @model name="head"
-   * @generated
-   * @ordered
-   */
-  public static final int HEAD_VALUE = 0;
-
-  /**
-   * The '<em><b>Body</b></em>' literal value.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #BODY
-   * @model name="body"
-   * @generated
-   * @ordered
-   */
-  public static final int BODY_VALUE = 1;
-
-  /**
-   * An array of all the '<em><b>Main Tag Name</b></em>' enumerators.
+   * An array of all the '<em><b>Create Bullet Points</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  private static final MainTagName[] VALUES_ARRAY =
-    new MainTagName[]
+  private static final CreateBulletPoints[] VALUES_ARRAY =
+    new CreateBulletPoints[]
     {
-      HEAD,
-      BODY,
+      BP,
     };
 
   /**
-   * A public read-only list of all the '<em><b>Main Tag Name</b></em>' enumerators.
+   * A public read-only list of all the '<em><b>Create Bullet Points</b></em>' enumerators.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  public static final List<MainTagName> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+  public static final List<CreateBulletPoints> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
 
   /**
-   * Returns the '<em><b>Main Tag Name</b></em>' literal with the specified literal value.
+   * Returns the '<em><b>Create Bullet Points</b></em>' literal with the specified literal value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param literal the literal.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static MainTagName get(String literal)
+  public static CreateBulletPoints get(String literal)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      MainTagName result = VALUES_ARRAY[i];
+      CreateBulletPoints result = VALUES_ARRAY[i];
       if (result.toString().equals(literal))
       {
         return result;
@@ -105,18 +83,18 @@ public enum MainTagName implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Main Tag Name</b></em>' literal with the specified name.
+   * Returns the '<em><b>Create Bullet Points</b></em>' literal with the specified name.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param name the name.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static MainTagName getByName(String name)
+  public static CreateBulletPoints getByName(String name)
   {
     for (int i = 0; i < VALUES_ARRAY.length; ++i)
     {
-      MainTagName result = VALUES_ARRAY[i];
+      CreateBulletPoints result = VALUES_ARRAY[i];
       if (result.getName().equals(name))
       {
         return result;
@@ -126,19 +104,18 @@ public enum MainTagName implements Enumerator
   }
 
   /**
-   * Returns the '<em><b>Main Tag Name</b></em>' literal with the specified integer value.
+   * Returns the '<em><b>Create Bullet Points</b></em>' literal with the specified integer value.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @param value the integer value.
    * @return the matching enumerator or <code>null</code>.
    * @generated
    */
-  public static MainTagName get(int value)
+  public static CreateBulletPoints get(int value)
   {
     switch (value)
     {
-      case HEAD_VALUE: return HEAD;
-      case BODY_VALUE: return BODY;
+      case BP_VALUE: return BP;
     }
     return null;
   }
@@ -170,7 +147,7 @@ public enum MainTagName implements Enumerator
    * <!-- end-user-doc -->
    * @generated
    */
-  private MainTagName(int value, String name, String literal)
+  private CreateBulletPoints(int value, String name, String literal)
   {
     this.value = value;
     this.name = name;
@@ -222,4 +199,4 @@ public enum MainTagName implements Enumerator
     return literal;
   }
   
-} //MainTagName
+} //CreateBulletPoints

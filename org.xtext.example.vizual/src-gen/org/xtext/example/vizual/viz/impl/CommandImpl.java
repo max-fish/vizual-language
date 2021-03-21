@@ -7,24 +7,24 @@ import org.eclipse.emf.ecore.EClass;
 
 import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 
-import org.xtext.example.vizual.viz.NormalTag;
+import org.xtext.example.vizual.viz.Command;
 import org.xtext.example.vizual.viz.VizPackage;
 
 /**
  * <!-- begin-user-doc -->
- * An implementation of the model object '<em><b>Normal Tag</b></em>'.
+ * An implementation of the model object '<em><b>Command</b></em>'.
  * <!-- end-user-doc -->
  *
  * @generated
  */
-public class NormalTagImpl extends MinimalEObjectImpl.Container implements NormalTag
+public class CommandImpl extends MinimalEObjectImpl.Container implements Command
 {
   /**
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    */
-  protected NormalTagImpl()
+  protected CommandImpl()
   {
     super();
   }
@@ -37,7 +37,7 @@ public class NormalTagImpl extends MinimalEObjectImpl.Container implements Norma
   @Override
   protected EClass eStaticClass()
   {
-    return VizPackage.Literals.NORMAL_TAG;
+    return VizPackage.Literals.COMMAND;
   }
 
-} //NormalTagImpl
+} //CommandImpl

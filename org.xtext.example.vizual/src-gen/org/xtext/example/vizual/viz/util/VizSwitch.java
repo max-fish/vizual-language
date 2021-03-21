@@ -80,33 +80,26 @@ public class VizSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case VizPackage.MAIN_TAG:
+      case VizPackage.COMMAND:
       {
-        MainTag mainTag = (MainTag)theEObject;
-        T result = caseMainTag(mainTag);
+        Command command = (Command)theEObject;
+        T result = caseCommand(command);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case VizPackage.NORMAL_TAG:
+      case VizPackage.CREATE:
       {
-        NormalTag normalTag = (NormalTag)theEObject;
-        T result = caseNormalTag(normalTag);
+        Create create = (Create)theEObject;
+        T result = caseCreate(create);
+        if (result == null) result = caseCommand(create);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
-      case VizPackage.TEXT_TAG:
+      case VizPackage.GENERATE:
       {
-        TextTag textTag = (TextTag)theEObject;
-        T result = caseTextTag(textTag);
-        if (result == null) result = caseNormalTag(textTag);
-        if (result == null) result = defaultCase(theEObject);
-        return result;
-      }
-      case VizPackage.CONTAINER_TAG:
-      {
-        ContainerTag containerTag = (ContainerTag)theEObject;
-        T result = caseContainerTag(containerTag);
-        if (result == null) result = caseNormalTag(containerTag);
+        Generate generate = (Generate)theEObject;
+        T result = caseGenerate(generate);
+        if (result == null) result = caseCommand(generate);
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
@@ -131,65 +124,49 @@ public class VizSwitch<T> extends Switch<T>
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Main Tag</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Command</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Main Tag</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Command</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseMainTag(MainTag object)
+  public T caseCommand(Command object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Normal Tag</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Create</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Normal Tag</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Create</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseNormalTag(NormalTag object)
+  public T caseCreate(Create object)
   {
     return null;
   }
 
   /**
-   * Returns the result of interpreting the object as an instance of '<em>Text Tag</em>'.
+   * Returns the result of interpreting the object as an instance of '<em>Generate</em>'.
    * <!-- begin-user-doc -->
    * This implementation returns null;
    * returning a non-null result will terminate the switch.
    * <!-- end-user-doc -->
    * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Text Tag</em>'.
+   * @return the result of interpreting the object as an instance of '<em>Generate</em>'.
    * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
    * @generated
    */
-  public T caseTextTag(TextTag object)
-  {
-    return null;
-  }
-
-  /**
-   * Returns the result of interpreting the object as an instance of '<em>Container Tag</em>'.
-   * <!-- begin-user-doc -->
-   * This implementation returns null;
-   * returning a non-null result will terminate the switch.
-   * <!-- end-user-doc -->
-   * @param object the target of the switch.
-   * @return the result of interpreting the object as an instance of '<em>Container Tag</em>'.
-   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-   * @generated
-   */
-  public T caseContainerTag(ContainerTag object)
+  public T caseGenerate(Generate object)
   {
     return null;
   }

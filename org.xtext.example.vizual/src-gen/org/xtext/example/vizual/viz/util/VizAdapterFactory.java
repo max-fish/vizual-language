@@ -81,24 +81,19 @@ public class VizAdapterFactory extends AdapterFactoryImpl
         return createModelAdapter();
       }
       @Override
-      public Adapter caseMainTag(MainTag object)
+      public Adapter caseCommand(Command object)
       {
-        return createMainTagAdapter();
+        return createCommandAdapter();
       }
       @Override
-      public Adapter caseNormalTag(NormalTag object)
+      public Adapter caseCreate(Create object)
       {
-        return createNormalTagAdapter();
+        return createCreateAdapter();
       }
       @Override
-      public Adapter caseTextTag(TextTag object)
+      public Adapter caseGenerate(Generate object)
       {
-        return createTextTagAdapter();
-      }
-      @Override
-      public Adapter caseContainerTag(ContainerTag object)
-      {
-        return createContainerTagAdapter();
+        return createGenerateAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -138,61 +133,46 @@ public class VizAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.vizual.viz.MainTag <em>Main Tag</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.vizual.viz.Command <em>Command</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.vizual.viz.MainTag
+   * @see org.xtext.example.vizual.viz.Command
    * @generated
    */
-  public Adapter createMainTagAdapter()
+  public Adapter createCommandAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.vizual.viz.NormalTag <em>Normal Tag</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.vizual.viz.Create <em>Create</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.vizual.viz.NormalTag
+   * @see org.xtext.example.vizual.viz.Create
    * @generated
    */
-  public Adapter createNormalTagAdapter()
+  public Adapter createCreateAdapter()
   {
     return null;
   }
 
   /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.vizual.viz.TextTag <em>Text Tag</em>}'.
+   * Creates a new adapter for an object of class '{@link org.xtext.example.vizual.viz.Generate <em>Generate</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
    * it's useful to ignore a case when inheritance will catch all the cases anyway.
    * <!-- end-user-doc -->
    * @return the new adapter.
-   * @see org.xtext.example.vizual.viz.TextTag
+   * @see org.xtext.example.vizual.viz.Generate
    * @generated
    */
-  public Adapter createTextTagAdapter()
-  {
-    return null;
-  }
-
-  /**
-   * Creates a new adapter for an object of class '{@link org.xtext.example.vizual.viz.ContainerTag <em>Container Tag</em>}'.
-   * <!-- begin-user-doc -->
-   * This default implementation returns null so that we can easily ignore cases;
-   * it's useful to ignore a case when inheritance will catch all the cases anyway.
-   * <!-- end-user-doc -->
-   * @return the new adapter.
-   * @see org.xtext.example.vizual.viz.ContainerTag
-   * @generated
-   */
-  public Adapter createContainerTagAdapter()
+  public Adapter createGenerateAdapter()
   {
     return null;
   }

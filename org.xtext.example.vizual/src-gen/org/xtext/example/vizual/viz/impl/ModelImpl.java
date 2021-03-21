@@ -17,7 +17,7 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
-import org.xtext.example.vizual.viz.MainTag;
+import org.xtext.example.vizual.viz.Command;
 import org.xtext.example.vizual.viz.Model;
 import org.xtext.example.vizual.viz.VizPackage;
 
@@ -29,7 +29,7 @@ import org.xtext.example.vizual.viz.VizPackage;
  * The following features are implemented:
  * </p>
  * <ul>
- *   <li>{@link org.xtext.example.vizual.viz.impl.ModelImpl#getMainTags <em>Main Tags</em>}</li>
+ *   <li>{@link org.xtext.example.vizual.viz.impl.ModelImpl#getCommands <em>Commands</em>}</li>
  * </ul>
  *
  * @generated
@@ -37,14 +37,14 @@ import org.xtext.example.vizual.viz.VizPackage;
 public class ModelImpl extends MinimalEObjectImpl.Container implements Model
 {
   /**
-   * The cached value of the '{@link #getMainTags() <em>Main Tags</em>}' containment reference list.
+   * The cached value of the '{@link #getCommands() <em>Commands</em>}' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @see #getMainTags()
+   * @see #getCommands()
    * @generated
    * @ordered
    */
-  protected EList<MainTag> mainTags;
+  protected EList<Command> commands;
 
   /**
    * <!-- begin-user-doc -->
@@ -73,13 +73,13 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
    * @generated
    */
   @Override
-  public EList<MainTag> getMainTags()
+  public EList<Command> getCommands()
   {
-    if (mainTags == null)
+    if (commands == null)
     {
-      mainTags = new EObjectContainmentEList<MainTag>(MainTag.class, this, VizPackage.MODEL__MAIN_TAGS);
+      commands = new EObjectContainmentEList<Command>(Command.class, this, VizPackage.MODEL__COMMANDS);
     }
-    return mainTags;
+    return commands;
   }
 
   /**
@@ -92,8 +92,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case VizPackage.MODEL__MAIN_TAGS:
-        return ((InternalEList<?>)getMainTags()).basicRemove(otherEnd, msgs);
+      case VizPackage.MODEL__COMMANDS:
+        return ((InternalEList<?>)getCommands()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -108,8 +108,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case VizPackage.MODEL__MAIN_TAGS:
-        return getMainTags();
+      case VizPackage.MODEL__COMMANDS:
+        return getCommands();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -125,9 +125,9 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case VizPackage.MODEL__MAIN_TAGS:
-        getMainTags().clear();
-        getMainTags().addAll((Collection<? extends MainTag>)newValue);
+      case VizPackage.MODEL__COMMANDS:
+        getCommands().clear();
+        getCommands().addAll((Collection<? extends Command>)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -143,8 +143,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case VizPackage.MODEL__MAIN_TAGS:
-        getMainTags().clear();
+      case VizPackage.MODEL__COMMANDS:
+        getCommands().clear();
         return;
     }
     super.eUnset(featureID);
@@ -160,8 +160,8 @@ public class ModelImpl extends MinimalEObjectImpl.Container implements Model
   {
     switch (featureID)
     {
-      case VizPackage.MODEL__MAIN_TAGS:
-        return mainTags != null && !mainTags.isEmpty();
+      case VizPackage.MODEL__COMMANDS:
+        return commands != null && !commands.isEmpty();
     }
     return super.eIsSet(featureID);
   }

@@ -67,10 +67,9 @@ public class VizFactoryImpl extends EFactoryImpl implements VizFactory
     switch (eClass.getClassifierID())
     {
       case VizPackage.MODEL: return createModel();
-      case VizPackage.MAIN_TAG: return createMainTag();
-      case VizPackage.NORMAL_TAG: return createNormalTag();
-      case VizPackage.TEXT_TAG: return createTextTag();
-      case VizPackage.CONTAINER_TAG: return createContainerTag();
+      case VizPackage.COMMAND: return createCommand();
+      case VizPackage.CREATE: return createCreate();
+      case VizPackage.GENERATE: return createGenerate();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -86,8 +85,10 @@ public class VizFactoryImpl extends EFactoryImpl implements VizFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case VizPackage.MAIN_TAG_NAME:
-        return createMainTagNameFromString(eDataType, initialValue);
+      case VizPackage.CREATE_BULLET_POINTS:
+        return createCreateBulletPointsFromString(eDataType, initialValue);
+      case VizPackage.GENERATE_DEFAULT:
+        return createGenerateDefaultFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -103,8 +104,10 @@ public class VizFactoryImpl extends EFactoryImpl implements VizFactory
   {
     switch (eDataType.getClassifierID())
     {
-      case VizPackage.MAIN_TAG_NAME:
-        return convertMainTagNameToString(eDataType, instanceValue);
+      case VizPackage.CREATE_BULLET_POINTS:
+        return convertCreateBulletPointsToString(eDataType, instanceValue);
+      case VizPackage.GENERATE_DEFAULT:
+        return convertGenerateDefaultToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -128,10 +131,10 @@ public class VizFactoryImpl extends EFactoryImpl implements VizFactory
    * @generated
    */
   @Override
-  public MainTag createMainTag()
+  public Command createCommand()
   {
-    MainTagImpl mainTag = new MainTagImpl();
-    return mainTag;
+    CommandImpl command = new CommandImpl();
+    return command;
   }
 
   /**
@@ -140,10 +143,10 @@ public class VizFactoryImpl extends EFactoryImpl implements VizFactory
    * @generated
    */
   @Override
-  public NormalTag createNormalTag()
+  public Create createCreate()
   {
-    NormalTagImpl normalTag = new NormalTagImpl();
-    return normalTag;
+    CreateImpl create = new CreateImpl();
+    return create;
   }
 
   /**
@@ -152,10 +155,10 @@ public class VizFactoryImpl extends EFactoryImpl implements VizFactory
    * @generated
    */
   @Override
-  public TextTag createTextTag()
+  public Generate createGenerate()
   {
-    TextTagImpl textTag = new TextTagImpl();
-    return textTag;
+    GenerateImpl generate = new GenerateImpl();
+    return generate;
   }
 
   /**
@@ -163,21 +166,9 @@ public class VizFactoryImpl extends EFactoryImpl implements VizFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public ContainerTag createContainerTag()
+  public CreateBulletPoints createCreateBulletPointsFromString(EDataType eDataType, String initialValue)
   {
-    ContainerTagImpl containerTag = new ContainerTagImpl();
-    return containerTag;
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  public MainTagName createMainTagNameFromString(EDataType eDataType, String initialValue)
-  {
-    MainTagName result = MainTagName.get(initialValue);
+    CreateBulletPoints result = CreateBulletPoints.get(initialValue);
     if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
     return result;
   }
@@ -187,7 +178,29 @@ public class VizFactoryImpl extends EFactoryImpl implements VizFactory
    * <!-- end-user-doc -->
    * @generated
    */
-  public String convertMainTagNameToString(EDataType eDataType, Object instanceValue)
+  public String convertCreateBulletPointsToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public GenerateDefault createGenerateDefaultFromString(EDataType eDataType, String initialValue)
+  {
+    GenerateDefault result = GenerateDefault.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertGenerateDefaultToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }
