@@ -15,6 +15,7 @@ import java.util.ArrayList
 import org.xtext.example.vizual.viz.Generate
 import org.xtext.example.vizual.viz.TextCommand
 import org.xtext.example.vizual.viz.DivCommand
+import org.xtext.example.vizual.viz.DropCommand
 
 /**
  * Generates code from your model files on save.
@@ -66,5 +67,14 @@ class VizGenerator extends AbstractGenerator {
 		'''
 		dispatch def generateHTMLCommand(DivCommand re)'''
 		<«re.div»>«re.divText»</«re.div»>
+		'''
+		dispatch def generateHTMLCommand(DropCommand drp) '''
+		«val a =  drp.rows.split(",")»
+			<select name="cars" id="cars">
+		«FOR g : a »
+			  <option value="«g»">«g»</option>
+		«ENDFOR»
+			</select>
+			
 		'''
 }

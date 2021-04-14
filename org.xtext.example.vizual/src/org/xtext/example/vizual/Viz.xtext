@@ -6,7 +6,15 @@ Model:
 	commands+=Command*;
 
 Command:
-	Create|Generate|TextCommand|TableCommand|DivCommand
+	Create|Generate|TextCommand|TableCommand|DivCommand|DropCommand
+;
+
+DropCommand:
+	drop= DropDown '(' rows=STRING ')'
+;
+
+DropDown:
+	DD = "DD"
 ;
 
 DivCommand:
