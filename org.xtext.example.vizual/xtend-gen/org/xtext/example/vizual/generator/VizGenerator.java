@@ -17,8 +17,11 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.eclipse.xtext.xbase.lib.StringExtensions;
 import org.xtext.example.vizual.viz.Command;
 import org.xtext.example.vizual.viz.Create;
+import org.xtext.example.vizual.viz.Div;
+import org.xtext.example.vizual.viz.DivCommand;
 import org.xtext.example.vizual.viz.Generate;
 import org.xtext.example.vizual.viz.Model;
+import org.xtext.example.vizual.viz.TextCommand;
 
 /**
  * Generates code from your model files on save.
@@ -104,11 +107,47 @@ public class VizGenerator extends AbstractGenerator {
     return _builder;
   }
   
+  protected CharSequence _generateHTMLCommand(final TextCommand txt) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<");
+    String _heading = txt.getHeading();
+    _builder.append(_heading);
+    _builder.append(">");
+    String _text = txt.getText();
+    _builder.append(_text);
+    _builder.append("</");
+    String _heading_1 = txt.getHeading();
+    _builder.append(_heading_1);
+    _builder.append(">");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
+  protected CharSequence _generateHTMLCommand(final DivCommand re) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("<");
+    Div _div = re.getDiv();
+    _builder.append(_div);
+    _builder.append(">");
+    String _divText = re.getDivText();
+    _builder.append(_divText);
+    _builder.append("</");
+    Div _div_1 = re.getDiv();
+    _builder.append(_div_1);
+    _builder.append(">");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+  
   public CharSequence generateHTMLCommand(final Command crt) {
     if (crt instanceof Create) {
       return _generateHTMLCommand((Create)crt);
+    } else if (crt instanceof DivCommand) {
+      return _generateHTMLCommand((DivCommand)crt);
     } else if (crt instanceof Generate) {
       return _generateHTMLCommand((Generate)crt);
+    } else if (crt instanceof TextCommand) {
+      return _generateHTMLCommand((TextCommand)crt);
     } else if (crt != null) {
       return _generateHTMLCommand(crt);
     } else {

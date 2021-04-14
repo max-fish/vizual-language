@@ -6,7 +6,11 @@ Model:
 	commands+=Command*;
 
 Command:
-	Create|Generate|TextCommand|TableCommand
+	Create|Generate|TextCommand|TableCommand|DivCommand
+;
+
+DivCommand:
+	div=Div divText=STRING
 ;
 
 Create:
@@ -21,6 +25,13 @@ enum CreateBulletPoints:
 	BP = 'BP'
 ;
 
+Div:
+	Division = defaultDiv 
+;
+
+defaultDiv:
+	'div'
+;
 TextHeading:
 	('h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6')
 ;
