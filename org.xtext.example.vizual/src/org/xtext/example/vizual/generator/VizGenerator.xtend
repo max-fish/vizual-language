@@ -14,6 +14,7 @@ import org.xtext.example.vizual.viz.Command
 import java.util.ArrayList
 import org.xtext.example.vizual.viz.Generate
 import org.xtext.example.vizual.viz.TextCommand
+import org.xtext.example.vizual.viz.DivCommand
 
 /**
  * Generates code from your model files on save.
@@ -63,5 +64,7 @@ class VizGenerator extends AbstractGenerator {
 		dispatch def generateHTMLCommand(TextCommand txt)'''
 		<«txt.heading»>«txt.text»</«txt.heading»>
 		'''
-		
+		dispatch def generateHTMLCommand(DivCommand re)'''
+		<«re.div»>«re.divText»</«re.div»>
+		'''
 }
