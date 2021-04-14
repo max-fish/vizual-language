@@ -6,17 +6,36 @@ Model:
 	commands+=Command*;
 
 Command:
-	Create|Generate
+	Create|Generate|TextCommand|TableCommand
 ;
 
 Create:
 	command = CreateBulletPoints 'with(' bullets=STRING ')'
 ;
 
+TextCommand:
+	heading=TextHeading text=STRING
+;
+
 enum CreateBulletPoints:
 	BP = 'BP'
 ;
 
+TextHeading:
+	('h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6')
+;
+
+TableCommand:
+	 {TableCommand} 'table' rows+=TableRow* 'end'
+;
+
+TableRow:
+	{TableRow} 'tr' data+=TableData*
+;
+
+TableData:
+	'td' dataValue=STRING
+;
 
 Generate:
 	command = GenerateDefault

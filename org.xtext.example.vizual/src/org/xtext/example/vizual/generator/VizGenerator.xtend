@@ -13,6 +13,7 @@ import org.xtext.example.vizual.viz.CreateBulletPoints
 import org.xtext.example.vizual.viz.Command
 import java.util.ArrayList
 import org.xtext.example.vizual.viz.Generate
+import org.xtext.example.vizual.viz.TextCommand
 
 /**
  * Generates code from your model files on save.
@@ -59,5 +60,8 @@ class VizGenerator extends AbstractGenerator {
 		dispatch def generateHTMLCommand(Generate gnrt)'''
 		<head> This is a default HTML webpage head </head>
 		<body> This is a default HTML webpage body </body>'''
+		dispatch def generateHTMLCommand(TextCommand txt)'''
+		<«txt.heading»>«txt.text»</«txt.heading»>
+		'''
 		
 }
