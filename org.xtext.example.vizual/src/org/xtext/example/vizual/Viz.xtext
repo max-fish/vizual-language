@@ -6,7 +6,23 @@ Model:
 	commands+=Command*;
 
 Command:
-	Create|Generate|TextCommand|TableCommand|DivCommand
+	Initializer|HeadCommand|BodyCommand|CommonCommand
+;
+
+HeadCommand:
+	'head' title=TitleCommand
+;
+
+BodyCommand:
+	'body' children+=CommonCommand+
+;
+
+TitleCommand:
+	'title' text=STRING
+;
+
+CommonCommand:
+	Create|Generate|TextCommand|TableCommand|DivCommand|TableRow|TableHeader|TableData
 ;
 
 DivCommand:
@@ -36,16 +52,24 @@ TextHeading:
 	('h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6')
 ;
 
-TableCommand:
-	 {TableCommand} 'table' rows+=TableRow* 'end'
+TableCommand returns TableCommand:
+	 'table' rows+=TableRow+
 ;
 
-TableRow:
-	{TableRow} 'tr' data+=TableData*
+TableRow returns TableRow:
+	'tr' data+=(TableData | TableHeader)+
 ;
 
-TableData:
+TableHeader returns TableHeader:
+	'th' text=STRING
+;
+
+TableData returns TableData:
 	'td' dataValue=STRING
+;
+
+Initializer:
+	'doctype' lang='html'
 ;
 
 Generate:

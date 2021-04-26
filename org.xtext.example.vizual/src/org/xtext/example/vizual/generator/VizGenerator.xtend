@@ -4,6 +4,9 @@
 package org.xtext.example.vizual.generator
 
 import org.eclipse.emf.ecore.resource.Resource
+
+
+
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
@@ -11,10 +14,17 @@ import org.xtext.example.vizual.viz.Model
 import org.xtext.example.vizual.viz.Create
 import org.xtext.example.vizual.viz.CreateBulletPoints
 import org.xtext.example.vizual.viz.Command
-import java.util.ArrayList
 import org.xtext.example.vizual.viz.Generate
 import org.xtext.example.vizual.viz.TextCommand
 import org.xtext.example.vizual.viz.DivCommand
+import org.xtext.example.vizual.viz.TableCommand
+import org.xtext.example.vizual.viz.TableRow
+import org.xtext.example.vizual.viz.TableData
+import org.xtext.example.vizual.viz.TableHeader
+import org.eclipse.emf.ecore.EObject
+import org.xtext.example.vizual.viz.Initializer
+import org.xtext.example.vizual.viz.HeadCommand
+import org.xtext.example.vizual.viz.BodyCommand
 
 /**
  * Generates code from your model files on save.
@@ -45,15 +55,27 @@ class VizGenerator extends AbstractGenerator {
 			origFileName.substring(0, origFileName.indexOf('.')).toFirstUpper + 'viz'
 		}
 	
-		def doGenerate(Model m, String className)'''
-			<!DOCTYPE html>
+		def doGenerate(Model m, String className){'''
 			«m.getCommands.map[generateHTMLCommand].join('\n')»
 		'''
-		
+		}
 		
 		def doGenerate(Model m) ''''''
 		dispatch def generateHTMLCommand(Command cmd) ''''''
-		dispatch def generateHTMLCommand(Create crt) '''
+		dispatch def generateHTMLCommand(Initializer init)'''
+		<!DOCTYPE «init.lang»>
+		'''
+		dispatch def generateHTMLCommand(HeadCommand head)'''
+		<head>
+		<title>«head.title.text»</title>
+		</head>
+		'''
+		dispatch def generateHTMLCommand(BodyCommand body)'''
+		<body>
+		«body.children.map[generateCommonCommand].join('\n')»
+		</body>
+		'''
+		dispatch def generateHTMLCommand(Create crt)'''
 		«if(crt == "BP"){val a =  crt.bullets.split(",")}»
 			bullet point code here
 			
@@ -61,10 +83,43 @@ class VizGenerator extends AbstractGenerator {
 		dispatch def generateHTMLCommand(Generate gnrt)'''
 		<head> This is a default HTML webpage head </head>
 		<body> This is a default HTML webpage body </body>'''
-		dispatch def generateHTMLCommand(TextCommand txt)'''
+		dispatch def generateCommonCommand(TextCommand txt)'''
 		<«txt.heading»>«txt.text»</«txt.heading»>
 		'''
-		dispatch def generateHTMLCommand(DivCommand re)'''
+		
+		
+		dispatch def generateCommonCommand(DivCommand re)'''
 		<«re.div»>«re.divText»</«re.div»>
+		'''
+		
+		def createTableElement(EObject tableElement){
+			if(tableElement.eClass.name.equals("TableHeader")) {
+				val tableHeader = tableElement as TableHeader;
+				'''
+				<th>«tableHeader.text»</th>
+				'''
+				}
+			else{
+				val tableData = tableElement as TableData;
+			'''
+			<td>«tableData.dataValue»</td>
+			'''
+			}
+		}
+		
+		dispatch def generateCommonCommand(TableData tableData)'''
+		<td>«tableData.dataValue»</td>
+		'''
+		
+		def createRow(TableRow tableRow)'''
+		<tr>
+		«tableRow.data.map[createTableElement].join('\n')»
+		</tr>
+		'''
+		
+		dispatch def generateCommonCommand(TableCommand table)'''
+		<table>
+		«table.rows.map[createRow].join('\n')»
+		</table>
 		'''
 }
