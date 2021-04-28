@@ -6,7 +6,31 @@ Model:
 	commands+=Command*;
 
 Command:
-	Create|Generate|TextCommand|TableCommand|DivCommand
+	Initializer|html=HtmlCommand|endHtml=EndHtmlCommand|HeadCommand|BodyCommand|CommonCommand
+;
+
+enum HtmlCommand:
+	HTML = 'html'
+;
+
+enum EndHtmlCommand:
+	endHTML = 'endHtml'
+;
+
+HeadCommand:
+	'head' title=TitleCommand
+;
+
+BodyCommand:
+	{BodyCommand} 'body'  '{' children+=CommonCommand* '}'
+;
+
+TitleCommand:
+	'title' text=STRING
+;
+
+CommonCommand:
+	Create|TextCommand|TableCommand|DivCommand|TableRow|TableHeader|TableData|DropDownCommand|BulletPointCommand|NumberedListCommand
 ;
 
 DivCommand:
@@ -33,32 +57,37 @@ defaultDiv:
 	'div'
 ;
 TextHeading:
-	('h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6')
+	('h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p')
 ;
 
-TableCommand:
-	 {TableCommand} 'table' rows+=TableRow* 'end'
+TableCommand returns TableCommand:
+	 {TableCommand} 'table' '{' rows+=(TableRow)* '}'
 ;
 
-TableRow:
-	{TableRow} 'tr' data+=TableData*
+TableRow returns TableRow:
+	{TableRow} 'tr' '{' data+=(TableData | TableHeader)* '}'
 ;
 
-TableData:
+TableHeader returns TableHeader:
+	'th' text=STRING
+;
+
+TableData returns TableData:
 	'td' dataValue=STRING
 ;
 
-Generate:
-	command = GenerateDefault
+Initializer:
+	'doctype' lang='html'
 ;
 
-enum GenerateDefault:
-	default='GenerateDefaultDocument'
-;
-terminal NEW_LINE:
-	"\n"
+DropDownCommand:
+	'DropDownSelection' '{' 'label' label=STRING 'options' '{' options+=STRING* '}' '}'
 ;
 
-terminal TAB_SPACE:
-	'\t'
+BulletPointCommand:
+	{BulletPointCommand} 'BulletPoint' '{' children+=TextCommand* '}'
+;
+
+NumberedListCommand:
+	{NumberedListCommand} 'NumberedList' '{' children+=TextCommand* '}'
 ;

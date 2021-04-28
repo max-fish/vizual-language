@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.resource.Resource
 
 
 
+
 import org.eclipse.xtext.generator.AbstractGenerator
 import org.eclipse.xtext.generator.IFileSystemAccess2
 import org.eclipse.xtext.generator.IGeneratorContext
@@ -14,7 +15,6 @@ import org.xtext.example.vizual.viz.Model
 import org.xtext.example.vizual.viz.Create
 import org.xtext.example.vizual.viz.CreateBulletPoints
 import org.xtext.example.vizual.viz.Command
-import org.xtext.example.vizual.viz.Generate
 import org.xtext.example.vizual.viz.TextCommand
 import org.xtext.example.vizual.viz.DivCommand
 import org.xtext.example.vizual.viz.TableCommand
@@ -25,6 +25,11 @@ import org.eclipse.emf.ecore.EObject
 import org.xtext.example.vizual.viz.Initializer
 import org.xtext.example.vizual.viz.HeadCommand
 import org.xtext.example.vizual.viz.BodyCommand
+import org.xtext.example.vizual.viz.DropDownCommand
+import org.xtext.example.vizual.viz.HtmlCommand
+import org.xtext.example.vizual.viz.EndHtmlCommand
+import org.xtext.example.vizual.viz.BulletPointCommand
+import org.xtext.example.vizual.viz.NumberedListCommand
 
 /**
  * Generates code from your model files on save.
@@ -80,9 +85,11 @@ class VizGenerator extends AbstractGenerator {
 			bullet point code here
 			
 		'''
-		dispatch def generateHTMLCommand(Generate gnrt)'''
-		<head> This is a default HTML webpage head </head>
-		<body> This is a default HTML webpage body </body>'''
+		
+		dispatch def generateHTMLCommand(HtmlCommand html)'''<html>'''
+		
+		dispatch def generateHTMLCommand(EndHtmlCommand endHtmlCommand)'''</html>'''
+		
 		dispatch def generateCommonCommand(TextCommand txt)'''
 		<«txt.heading»>«txt.text»</«txt.heading»>
 		'''
@@ -121,5 +128,33 @@ class VizGenerator extends AbstractGenerator {
 		<table>
 		«table.rows.map[createRow].join('\n')»
 		</table>
+		'''
+		
+		def createOption(String string)'''
+		<option value=«string»>«string»</option>
+		'''
+		
+		dispatch def generateCommonCommand(DropDownCommand dropDownCommand)'''
+		<label for="«dropDownCommand.label»">«dropDownCommand.label»</label>
+		
+		<select name="«dropDownCommand.label»" id="«dropDownCommand.label»">
+		«dropDownCommand.options.map[createOption].join('\n')»
+		</select>
+		'''
+		
+		def createListElement(TextCommand textCommand)'''
+		<li><«textCommand.heading»>«textCommand.text»</«textCommand.heading»></li>
+		'''
+		
+		dispatch def generateCommonCommand(BulletPointCommand bulletPointCommand)'''
+		<ul>
+		«bulletPointCommand.children.map[createListElement].join('\n')»
+		</ul>
+		'''
+		
+		dispatch def generateCommonCommand(NumberedListCommand numberedListCommand)'''
+		<ol>
+		«numberedListCommand.children.map[createListElement].join('\n')»
+		</ol>
 		'''
 }

@@ -6,7 +6,15 @@ Model:
 	commands+=Command*;
 
 Command:
-	Initializer|HeadCommand|BodyCommand|CommonCommand
+	Initializer|html=HtmlCommand|endHtml=EndHtmlCommand|HeadCommand|BodyCommand|CommonCommand
+;
+
+enum HtmlCommand:
+	HTML = 'html'
+;
+
+enum EndHtmlCommand:
+	endHTML = 'endHtml'
 ;
 
 HeadCommand:
@@ -14,7 +22,7 @@ HeadCommand:
 ;
 
 BodyCommand:
-	'body' children+=CommonCommand+
+	{BodyCommand} 'body'  '{' children+=CommonCommand* '}'
 ;
 
 TitleCommand:
@@ -22,7 +30,7 @@ TitleCommand:
 ;
 
 CommonCommand:
-	Create|Generate|TextCommand|TableCommand|DivCommand|TableRow|TableHeader|TableData
+	Create|TextCommand|TableCommand|DivCommand|TableRow|TableHeader|TableData|DropDownCommand|BulletPointCommand|NumberedListCommand
 ;
 
 DivCommand:
@@ -49,15 +57,15 @@ defaultDiv:
 	'div'
 ;
 TextHeading:
-	('h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6')
+	('h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p')
 ;
 
 TableCommand returns TableCommand:
-	 'table' rows+=TableRow+
+	 {TableCommand} 'table' '{' rows+=(TableRow)* '}'
 ;
 
 TableRow returns TableRow:
-	'tr' data+=(TableData | TableHeader)+
+	{TableRow} 'tr' '{' data+=(TableData | TableHeader)* '}'
 ;
 
 TableHeader returns TableHeader:
@@ -72,17 +80,14 @@ Initializer:
 	'doctype' lang='html'
 ;
 
-Generate:
-	command = GenerateDefault
+DropDownCommand:
+	'DropDownSelection' '{' 'label' label=STRING 'options' '{' options+=STRING* '}' '}'
 ;
 
-enum GenerateDefault:
-	default='GenerateDefaultDocument'
-;
-terminal NEW_LINE:
-	"\n"
+BulletPointCommand:
+	{BulletPointCommand} 'BulletPoint' '{' children+=TextCommand* '}'
 ;
 
-terminal TAB_SPACE:
-	'\t'
+NumberedListCommand:
+	{NumberedListCommand} 'NumberedList' '{' children+=TextCommand* '}'
 ;
