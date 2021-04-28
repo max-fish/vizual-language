@@ -1,0 +1,40 @@
+/* XPECT_SETUP vizual.test.XPectTests END_SETUP */
+
+doctype html
+
+head
+	title 'tab'
+
+body
+
+table 
+	tr
+		th 'header'
+		td 'hello 1'
+		td 'hello 2'
+		
+h1 'hello there!'
+
+/*
+XPECT generated ---
+-- DEFAULT_OUTPUTTest1viz.html --
+<!DOCTYPE html>
+
+<table>
+<tr>
+<th>header</th>
+
+<td>hello 1</td>
+
+<td>hello 2</td>
+</tr>
+</table>
+
+<h1>hello there!</h1>
+
+-- / --
+-- DEFAULT_OUTPUTtest1.viz.xt.txt --
+  
+-- / --
+---
+ */

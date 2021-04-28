@@ -1,0 +1,9 @@
+doctype html
+
+head
+	title 'tab'
+
+body
+
+h1 'hello'
+

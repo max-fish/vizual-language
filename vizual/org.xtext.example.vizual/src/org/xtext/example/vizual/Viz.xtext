@@ -1,0 +1,93 @@
+grammar org.xtext.example.vizual.Viz with org.eclipse.xtext.common.Terminals
+
+generate viz "http://www.xtext.org/example/vizual/Viz"
+
+Model:
+	commands+=Command*;
+
+Command:
+	Initializer|html=HtmlCommand|endHtml=EndHtmlCommand|HeadCommand|BodyCommand|CommonCommand
+;
+
+enum HtmlCommand:
+	HTML = 'html'
+;
+
+enum EndHtmlCommand:
+	endHTML = 'endHtml'
+;
+
+HeadCommand:
+	'head' title=TitleCommand
+;
+
+BodyCommand:
+	{BodyCommand} 'body'  '{' children+=CommonCommand* '}'
+;
+
+TitleCommand:
+	'title' text=STRING
+;
+
+CommonCommand:
+	Create|TextCommand|TableCommand|DivCommand|TableRow|TableHeader|TableData|DropDownCommand|BulletPointCommand|NumberedListCommand
+;
+
+DivCommand:
+	div=Div divText=STRING
+;
+
+Create:
+	command = CreateBulletPoints 'with(' bullets=STRING ')'
+;
+
+TextCommand:
+	heading=TextHeading text=STRING
+;
+
+enum CreateBulletPoints:
+	BP = 'BP'
+;
+
+Div:
+	Division = defaultDiv 
+;
+
+defaultDiv:
+	'div'
+;
+TextHeading:
+	('h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6' | 'p')
+;
+
+TableCommand returns TableCommand:
+	 {TableCommand} 'table' '{' rows+=(TableRow)* '}'
+;
+
+TableRow returns TableRow:
+	{TableRow} 'tr' '{' data+=(TableData | TableHeader)* '}'
+;
+
+TableHeader returns TableHeader:
+	'th' text=STRING
+;
+
+TableData returns TableData:
+	'td' dataValue=STRING
+;
+
+Initializer:
+	'doctype' lang='html'
+;
+
+DropDownCommand:
+	'DropDownSelection' '{' 'label' label=STRING 'options' '{' options+=STRING* '}' '}'
+;
+
+BulletPointCommand:
+	{BulletPointCommand} 'BulletPoint' '{' children+=TextCommand* '}'
+;
+
+NumberedListCommand:
+	{NumberedListCommand} 'NumberedList' '{' children+=TextCommand* '}'
+;

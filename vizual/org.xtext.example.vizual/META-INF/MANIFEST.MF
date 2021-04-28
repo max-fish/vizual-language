@@ -1,0 +1,29 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: org.xtext.example.vizual
+Bundle-ManifestVersion: 2
+Bundle-Name: org.xtext.example.vizual
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: org.xtext.example.vizual; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: org.eclipse.xtext,
+ org.eclipse.xtext.xbase,
+ org.eclipse.equinox.common;bundle-version="3.5.0",
+ org.eclipse.emf.ecore,
+ org.eclipse.xtext.xbase.lib;bundle-version="2.14.0",
+ org.eclipse.xtext.util,
+ org.eclipse.emf.common,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.8
+Export-Package: org.xtext.example.vizual.viz.util,
+ org.xtext.example.vizual.parser.antlr.internal,
+ org.xtext.example.vizual.parser.antlr,
+ org.xtext.example.vizual.scoping,
+ org.xtext.example.vizual.viz.impl,
+ org.xtext.example.vizual.services,
+ org.xtext.example.vizual.generator,
+ org.xtext.example.vizual.serializer,
+ org.xtext.example.vizual,
+ org.xtext.example.vizual.viz,
+ org.xtext.example.vizual.validation
+Import-Package: org.apache.log4j

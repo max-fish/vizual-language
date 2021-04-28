@@ -1,0 +1,13 @@
+/* XPECT_SETUP vizual.test.XPectTests END_SETUP */
+
+//XPECT warnings--> "File should only have one 'body' tag"
+doctype html
+
+head
+	title 'tab'
+	
+body
+	h1 'h1 tag'
+	
+body
+	h1 'hello'

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="org.junit.runner.RunWith"/>
+    <fullyQualifiedTypeName name="org.eclipse.xpect.runner.XpectRunner"/>
+    <fullyQualifiedTypeName name="org.eclipse.xpect.xtext.lib.tests.GeneratorTest"/>
+    <fullyQualifiedTypeName name="org.eclipse.xpect.xtext.lib.tests.JvmModelInferrerTest"/>
+    <fullyQualifiedTypeName name="org.eclipse.xpect.xtext.lib.tests.ScopingTest"/>
+    <fullyQualifiedTypeName name="org.eclipse.xpect.xtext.lib.tests.ValidationTest"/>
+    <fullyQualifiedTypeName name="org.eclipse.xpect.xtext.lib.tests.LinkingTest"/>
+    <fullyQualifiedTypeName name="org.eclipse.xpect.runner.XpectSuiteClasses"/>
+</qualifiedTypeNameHistroy>

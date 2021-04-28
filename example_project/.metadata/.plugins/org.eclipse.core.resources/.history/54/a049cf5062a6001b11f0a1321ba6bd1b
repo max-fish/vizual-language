@@ -1,0 +1,11 @@
+doctype html
+	
+body
+
+table 
+	tr
+		th 'header'
+		td 'hello 1'
+		td 'hello 2'
+		
+h1 'hello'

@@ -1,0 +1,25 @@
+doctype html
+
+head
+	title 'tab'
+
+body {
+	
+DropDownSelection {
+	label 'selection'
+	options {
+		'hi'
+		'next'
+	}
+}
+
+h1 'hello'
+
+table {
+	tr {
+		td 'hi'
+		td 'hi2'
+		}
+	}
+}
+

@@ -1,0 +1,9 @@
+/* XPECT_SETUP vizual.test.XPectTests END_SETUP */
+
+doctype html
+
+head
+	title 'h1'
+	
+head
+	title 'h2'

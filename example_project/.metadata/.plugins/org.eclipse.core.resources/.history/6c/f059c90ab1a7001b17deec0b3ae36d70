@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+
+<head>
+<title>tab</title>
+</head>
+
+<body>
+<label for="selection">Choose selection</label>
+
+<select name="selection" id="selection">
+<option value=hi>hi</option>
+
+<option value=next>next</option>
+</select>
+
+<h1>hello</h1>
+
+<table>
+<tr>
+<td>hi</td>
+
+<td>hi2</td>
+</tr>
+</table>
+</body>

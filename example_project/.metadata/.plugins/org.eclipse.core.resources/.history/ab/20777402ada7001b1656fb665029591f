@@ -1,0 +1,28 @@
+doctype html
+
+head
+	title 'tab'
+
+body
+
+h1 'hello'
+
+table {
+	tr {
+		td 'hi'
+		td 'hi2'
+		}
+	}
+	
+DropDownSelection {
+label 'selection'
+options {
+	'option1' 'option2'
+   }
+}
+
+BulletPoint {
+	h1 'hello'
+	p 'hi'
+}
+

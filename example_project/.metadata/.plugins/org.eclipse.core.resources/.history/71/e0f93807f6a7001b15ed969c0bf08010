@@ -1,0 +1,12 @@
+/* XPECT_SETUP vizual.test.XPectTests END_SETUP */
+
+doctype html
+
+//XPECT warnings--> "There should only be one 'doctype html' statement" at "doctype html"
+doctype html
+
+head
+	title 'tab'
+	
+body
+	h1 'text'

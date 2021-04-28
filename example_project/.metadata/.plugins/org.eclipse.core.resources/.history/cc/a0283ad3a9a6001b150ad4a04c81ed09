@@ -1,0 +1,14 @@
+/* XPECT_SETUP vizual.test.XPectTests END_SETUP */
+
+doctype html
+
+head
+	title 'tab'
+
+body 
+
+//XPECT warnings --> "Table data should be inside of table row" at "td 'hello 1'"
+td 'hello 1'
+
+td 'hello 2'
+	

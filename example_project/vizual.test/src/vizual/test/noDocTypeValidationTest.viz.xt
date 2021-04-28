@@ -1,0 +1,9 @@
+/* XPECT_SETUP vizual.test.XPectTests END_SETUP */
+
+//XPECT warnings--> "File should start with 'doctype html' statement" at "head title 'tab'"
+head
+	title 'tab'
+	
+body {
+	h1 'text'
+	}

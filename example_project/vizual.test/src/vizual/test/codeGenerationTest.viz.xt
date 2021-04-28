@@ -1,0 +1,105 @@
+/* XPECT_SETUP vizual.test.XPectTests END_SETUP */
+
+doctype html
+
+head
+	title 'tab'
+
+body {
+	
+h1 'hello, world'
+
+	table {
+		
+		tr {
+		th 'header 1'
+		td 'row 1, element 1'
+		td 'row 1, element 2'
+		}
+			
+		tr {
+			th 'header 2'
+			td 'row 2, element 1'
+			td 'row 2, element 2'
+		}
+	}
+	
+	BulletPoint {
+		p 'bullet point element 1'
+		h6 'bullet point element 2'
+	}
+	
+	NumberedList {
+		p 'numbered list element 1'
+		h6 'numbered list element 2'
+	}
+	
+	DropDownSelection {
+		label 'choose an element'
+		options {
+			'option 1'
+			'option 2'
+			'option 3'
+		}
+	}
+}
+
+/*
+XPECT generated ---
+-- DEFAULT_OUTPUTCodeGenerationTestviz.html --
+  <!DOCTYPE html>
+  
+  <head>
+  <title>tab</title>
+  </head>
+  
+  <body>
+  <h1>hello, world</h1>
+  
+  <table>
+  <tr>
+  <th>header 1</th>
+  
+  <td>row 1, element 1</td>
+  
+  <td>row 1, element 2</td>
+  </tr>
+  
+  <tr>
+  <th>header 2</th>
+  
+  <td>row 2, element 1</td>
+  
+  <td>row 2, element 2</td>
+  </tr>
+  </table>
+  
+  <ul>
+  <li><p>bullet point element 1</p></li>
+  
+  <li><h6>bullet point element 2</h6></li>
+  </ul>
+  
+  <ol>
+  <li><p>numbered list element 1</p></li>
+  
+  <li><h6>numbered list element 2</h6></li>
+  </ol>
+  
+  <label for="choose an element">choose an element</label>
+  
+  <select name="choose an element" id="choose an element">
+  <option value=option 1>option 1</option>
+  
+  <option value=option 2>option 2</option>
+  
+  <option value=option 3>option 3</option>
+  </select>
+  </body>
+  
+-- / --
+-- DEFAULT_OUTPUTcodeGenerationTest.viz.xt.txt --
+  
+-- / --
+---
+ */

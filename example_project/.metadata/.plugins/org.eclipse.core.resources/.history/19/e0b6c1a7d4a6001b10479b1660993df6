@@ -1,0 +1,17 @@
+/* XPECT_SETUP vizual.test.XPectTests END_SETUP */
+
+doctype html
+
+// XPECT warnings--> "Command should be inside the body." at "h1 'this is an h1 tag'"
+h1 'this is an h1 tag'
+
+head
+	title 'tab'
+
+body 
+
+// XPECT warnings --> "Table data should be inside of a table row." at "td 'table data'"
+td 'table data'
+	
+// XPECT warnings--> "Table row should be inside a table." at "tr"
+tr

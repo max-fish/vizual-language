@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="viz" nsURI="http://www.xtext.org/example/vizual/Viz" nsPrefix="viz">
+  <eClassifiers xsi:type="ecore:EClass" name="Model">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="commands" upperBound="-1"
+        eType="#//Command" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Command">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="html" eType="#//HtmlCommand"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="endHtml" eType="#//EndHtmlCommand"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="HtmlCommand">
+    <eLiterals name="HTML" literal="html"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="EndHtmlCommand">
+    <eLiterals name="endHTML" literal="endHtml"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="HeadCommand" eSuperTypes="#//Command">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="title" eType="#//TitleCommand"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BodyCommand" eSuperTypes="#//Command">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//CommonCommand" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TitleCommand">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CommonCommand" eSuperTypes="#//Command"/>
+  <eClassifiers xsi:type="ecore:EClass" name="DivCommand" eSuperTypes="#//CommonCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="div" eType="#//Div" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="divText" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Create" eSuperTypes="#//CommonCommand">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="command" eType="#//CreateBulletPoints"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bullets" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TextCommand" eSuperTypes="#//CommonCommand">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="heading" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CreateBulletPoints">
+    <eLiterals name="BP" literal="BP"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Div">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Division" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableCommand" eSuperTypes="#//CommonCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="rows" upperBound="-1" eType="#//TableRow"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableRow" eSuperTypes="#//CommonCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="data" upperBound="-1" eType="#//CommonCommand"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableHeader" eSuperTypes="#//CommonCommand">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="text" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="TableData" eSuperTypes="#//CommonCommand">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataValue" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Initializer" eSuperTypes="#//Command">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="lang" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="DropDownCommand" eSuperTypes="#//CommonCommand">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="label" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="options" unique="false"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BulletPointCommand" eSuperTypes="#//CommonCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//TextCommand" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NumberedListCommand" eSuperTypes="#//CommonCommand">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="children" upperBound="-1"
+        eType="#//TextCommand" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>

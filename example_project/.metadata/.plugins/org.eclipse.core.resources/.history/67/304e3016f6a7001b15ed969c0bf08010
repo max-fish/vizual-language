@@ -1,0 +1,7 @@
+/* XPECT_SETUP vizual.test.XPectTests END_SETUP */
+
+//XPECT warnings--> "File should have a 'head' tag" at "doctype html"
+doctype html
+
+body
+	h1 'text'

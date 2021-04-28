@@ -1,0 +1,14 @@
+/* XPECT_SETUP vizual.test.XPectTests END_SETUP */
+
+doctype html
+
+head
+	title 'tab'
+	
+//XPECT warnings--> "There should be only one 'head' tag" at "head title 'tab'"
+head
+	title 'tab'
+	
+body {
+	h1 'text'
+	}
