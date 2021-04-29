@@ -11,20 +11,22 @@ Vizual is a DSML designed to help programmers develop web pages more efficiently
 5. Click Directory, and select the `vizual` folder within the vizual-language repo that was cloned.
 6. Once the `vizual` folder is selected, 6 entries should appear in the folder selector screen. One of them should be a plane `vizual` folder, and the others are Eclipse projects. Untick the plane `vizual` folder.
 7. Press Finish. 5 xText folders should be visible in the Model Explorer of the Eclipse environment.
-8. To run the language, a run configuration must be defined. Press Run -> Run Configurations...
-9. Select Eclipse Application on the left panel, and expand it.
-10. On the top left of the Run Configurations screen, there should be an icon that looks like a blank sheet with a plus superscript. Click on it to create a new configuration.
-11. In the expanded Eclipse Application view, there should be an entry called `New_configuration`. 
-12. Click close at the bottom right of the Run Configurations screen.
-13. In the Model Explorer panel, right-click on the `org.xtext.example.vizual` folder, and click run as -> `Eclipse Application`.
-14. Select `New_configuration` and click ok. This step opens the Runtime Eclipse.
-15. In the Runtime Eclipse, click on import projects in the Model Explorer panel.
-16. In the Import wizard, expand the General folder and select Existing projects into workspace.
-17. Click Browse next to `Select root directory`.
-18. Navigate to the cloned repo and choose the example_project folder.
-19. Make sure `Search for nested projects` is enabled.
-20. In the folder selector screen, there should be 3 entries. Untick the `runtime-EclipseXtext` entry.
-21. Click Finish.
+8. Navigate to org.xtext.example.vizual -> src -> org/xtext/example/vizual -> Viz.xtext
+9. Right-click on Viz.xtext and press "Run as -> Generate Xtext Artifacts"
+10. To run the language, a run configuration must be defined. Press Run -> Run Configurations...
+11. Select Eclipse Application on the left panel, and expand it.
+12. On the top left of the Run Configurations screen, there should be an icon that looks like a blank sheet with a plus superscript. Click on it to create a new configuration.
+13. In the expanded Eclipse Application view, there should be an entry called `New_configuration`. 
+14. Click close at the bottom right of the Run Configurations screen.
+15. In the Model Explorer panel, right-click on the `org.xtext.example.vizual` folder, and click run as -> `Eclipse Application`.
+16. Select `New_configuration` and click ok. This step opens the Runtime Eclipse.
+17. In the Runtime Eclipse, click on import projects in the Model Explorer panel.
+18. In the Import wizard, expand the General folder and select Existing projects into workspace.
+19. Click Browse next to `Select root directory`.
+20. Navigate to the cloned repo and choose the example_project folder.
+21. Make sure `Search for nested projects` is enabled.
+22. In the folder selector screen, there should be 3 entries. Untick the `runtime-EclipseXtext` entry.
+23. Click Finish.
 
 ## Exploring the Language
 
