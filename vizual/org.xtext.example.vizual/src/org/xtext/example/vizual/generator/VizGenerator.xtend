@@ -90,13 +90,13 @@ class VizGenerator extends AbstractGenerator {
 		
 		dispatch def generateHTMLCommand(EndHtmlCommand endHtmlCommand)'''</html>'''
 		
-		dispatch def generateCommonCommand(TextCommand txt)'''
-		<«txt.heading»>«txt.text»</«txt.heading»>
+		dispatch def generateCommonCommand(TextCommand textCommand)'''
+		<«textCommand.heading»>«textCommand.text»</«textCommand.heading»>
 		'''
 		
 		
-		dispatch def generateCommonCommand(DivCommand re)'''
-		<«re.div»>«re.divText»</«re.div»>
+		dispatch def generateCommonCommand(DivCommand divCommand)'''
+		<«divCommand.div»>«divCommand.divText»</«divCommand.div»>
 		'''
 		
 		def createTableElement(EObject tableElement){
